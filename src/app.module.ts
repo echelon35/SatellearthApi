@@ -13,6 +13,24 @@ import { UserController } from './user/user.controller';
 import { RoleController } from './role/role.controller';
 import { AdviceController } from './advice/advice.controller';
 import { BlockUserController } from './block-user/block-user.controller';
+import { BolideController } from './bolide/bolide.controller';
+import { CommentDisasterController } from './comment-disaster/comment-disaster.controller';
+import { CommentPostController } from './comment-post/comment-post.controller';
+import { CycloneController } from './cyclone/cyclone.controller';
+import { EruptionController } from './eruption/eruption.controller';
+import { FavoriController } from './favori/favori.controller';
+import { FollowerController } from './follower/follower.controller';
+import { InondationController } from './inondation/inondation.controller';
+import { LikePostController } from './like-post/like-post.controller';
+import { NotificationController } from './notification/notification.controller';
+import { PaysController } from './pays/pays.controller';
+import { PlaceTypesController } from './place_types/place_types.controller';
+import { PlacesController } from './places/places.controller';
+import { PostController } from './post/post.controller';
+import { SavedSearchController } from './saved-search/saved-search.controller';
+import { SearchPlaceController } from './search-place/search-place.controller';
+import { SearchController } from './search/search.controller';
+import { TweetController } from './tweet/tweet.controller';
 
 @Module({
   imports: [
@@ -41,6 +59,24 @@ import { BlockUserController } from './block-user/block-user.controller';
     RoleController,
     AdviceController,
     BlockUserController,
+    BolideController,
+    CommentDisasterController,
+    CommentPostController,
+    CycloneController,
+    EruptionController,
+    FavoriController,
+    FollowerController,
+    InondationController,
+    LikePostController,
+    NotificationController,
+    PaysController,
+    PlaceTypesController,
+    PlacesController,
+    PostController,
+    SavedSearchController,
+    SearchPlaceController,
+    SearchController,
+    TweetController,
   ],
   providers: [AppService],
 })
