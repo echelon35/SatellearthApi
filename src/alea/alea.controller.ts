@@ -1,14 +1,22 @@
 import { Controller, Get, Param } from '@nestjs/common';
+import { AleaService } from './alea.service';
+import { AleaDto } from './DTO/alea.dto';
 
-@Controller('alea')
+@Controller('aleas')
 export class AleaController {
+  constructor(private aleaService: AleaService) {}
+
   @Get()
-  findAll(): void {
+  async findAll(): Promise<AleaDto[]> {
     //Renvoie la liste de tous les aléas
+    const aleas = await this.aleaService.findAll();
+    return aleas;
   }
 
-  @Get()
-  findOne(@Param('id') id: string): void {
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<AleaDto> {
     //Renvoie un aléa par son id
+    const alea = await this.aleaService.findOne(id);
+    return alea;
   }
 }

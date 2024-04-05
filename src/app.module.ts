@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AleaController } from './alea/alea.controller';
 import { AleaModule } from './alea/alea.module';
 import { DisasterController } from './disaster/disaster.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
@@ -31,6 +30,7 @@ import { SavedSearchController } from './saved-search/saved-search.controller';
 import { SearchPlaceController } from './search-place/search-place.controller';
 import { SearchController } from './search/search.controller';
 import { TweetController } from './tweet/tweet.controller';
+import { Alea } from './alea/alea.model';
 
 @Module({
   imports: [
@@ -45,12 +45,11 @@ import { TweetController } from './tweet/tweet.controller';
       username: process.env.SATELLEARTH_API_DB_USER,
       password: process.env.SATELLEARTH_API_DB_PASSWORD,
       database: process.env.SATELLEARTH_API_DB_NAME,
-      models: [],
+      models: [Alea],
     }),
   ],
   controllers: [
     AppController,
-    AleaController,
     DisasterController,
     SeismeController,
     VilleController,

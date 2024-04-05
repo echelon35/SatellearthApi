@@ -7,7 +7,7 @@ import {
   Index,
   Scopes,
 } from 'sequelize-typescript';
-import { RoleEntity } from './role.entity';
+import { Role } from 'src/role/role.model';
 
 @Scopes(() => ({
   picture: {
@@ -15,7 +15,7 @@ import { RoleEntity } from './role.entity';
   },
   role: {
     attributes: ['username'],
-    include: [RoleEntity],
+    include: [Role],
   },
   login: {
     attributes: ['mail', 'username'],
