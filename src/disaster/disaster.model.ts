@@ -6,6 +6,7 @@ import {
   Model,
   Scopes,
   BelongsTo,
+  ForeignKey,
 } from 'sequelize-typescript';
 import { Seisme } from 'src/seisme/seisme.model';
 import { Alea } from 'src/alea/alea.model';
@@ -25,9 +26,12 @@ import { Source } from 'src/source/source.model';
   freezeTableName: true,
 })
 export class Disaster extends Model {
-  @BelongsTo(() => Alea)
-  @Column({ type: DataType.INTEGER, unique: 'unique_disaster' })
+  @ForeignKey(() => Alea)
+  @Column(DataType.INTEGER)
   aleaId: number;
+
+  @BelongsTo(() => Alea)
+  alea: Alea;
 
   @Column({ type: DataType.DATE, unique: 'unique_disaster' })
   premier_releve: Date;
@@ -38,9 +42,12 @@ export class Disaster extends Model {
   @Column({ type: DataType.GEOMETRY, unique: 'unique_disaster' })
   point: Point;
 
-  @BelongsTo(() => Source)
+  @ForeignKey(() => Source)
   @Column(DataType.STRING(50))
   sourceId: string;
+
+  @BelongsTo(() => Source)
+  source: Source;
 
   @Column(DataType.STRING(20))
   idSource: string;
@@ -57,7 +64,10 @@ export class Disaster extends Model {
   @Column(DataType.DOUBLE)
   distance_ville: number;
 
-  @BelongsTo(() => Ville)
+  @ForeignKey(() => Ville)
   @Column(DataType.INTEGER)
   villeId: number;
+
+  @BelongsTo(() => Ville)
+  ville: Ville;
 }

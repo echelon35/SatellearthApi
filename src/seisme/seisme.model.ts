@@ -5,6 +5,7 @@ import {
   Column,
   DefaultScope,
   BelongsTo,
+  ForeignKey,
 } from 'sequelize-typescript';
 import { Disaster } from '../disaster/disaster.model';
 
@@ -16,9 +17,12 @@ import { Disaster } from '../disaster/disaster.model';
   freezeTableName: true,
 })
 export class Seisme extends Model {
-  @BelongsTo(() => Disaster)
+  @ForeignKey(() => Disaster)
   @Column(DataType.INTEGER)
   disasterId: number;
+
+  @BelongsTo(() => Disaster)
+  disaster: Disaster;
 
   @Column(DataType.INTEGER)
   nb_stations: number;
