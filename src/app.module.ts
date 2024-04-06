@@ -10,6 +10,10 @@ import { Seisme } from './seisme/seisme.model';
 import { Disaster } from './disaster/disaster.model';
 import { Ville } from './ville/ville.model';
 import { Source } from './source/source.model';
+import { Eruption } from './eruption/eruption.model';
+import { EruptionModule } from './eruption/eruption.module';
+import { InondationModule } from './inondation/inondation.module';
+import { Inondation } from './inondation/inondation.model';
 
 @Module({
   imports: [
@@ -24,9 +28,11 @@ import { Source } from './source/source.model';
       username: process.env.SATELLEARTH_API_DB_USER,
       password: process.env.SATELLEARTH_API_DB_PASSWORD,
       database: process.env.SATELLEARTH_API_DB_NAME,
-      models: [Alea, Seisme, Disaster, Ville, Source],
+      models: [Alea, Seisme, Disaster, Eruption, Ville, Source, Inondation],
     }),
     SeismeModule,
+    EruptionModule,
+    InondationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
