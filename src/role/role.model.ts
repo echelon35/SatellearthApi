@@ -13,9 +13,6 @@ import { User } from 'src/user/user.model';
   freezeTableName: true,
 })
 export class Role extends Model {
-  @Column(DataType.INTEGER)
-  @PrimaryKey
-  id: number;
   @Column(DataType.STRING)
   name: string;
 }

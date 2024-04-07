@@ -14,6 +14,18 @@ import { Eruption } from './eruption/eruption.model';
 import { EruptionModule } from './eruption/eruption.module';
 import { InondationModule } from './inondation/inondation.module';
 import { Inondation } from './inondation/inondation.model';
+import { DisasterModule } from './disaster/disaster.module';
+import { AdviceModule } from './advice/advice.module';
+import { Advice } from './advice/advice.model';
+import { Tweet } from './tweet/tweet.model';
+import { User } from './user/user.model';
+import { TweetModule } from './tweet/tweet.module';
+import { UserModule } from './user/user.module';
+import { SourceModule } from './source/source.module';
+import { SearchPlace } from './search-place/search-place.model';
+import { SearchPlaceModule } from './search-place/search-place.module';
+import { Search } from './search/search.model';
+import { SearchModule } from './search/search.module';
 
 @Module({
   imports: [
@@ -28,11 +40,31 @@ import { Inondation } from './inondation/inondation.model';
       username: process.env.SATELLEARTH_API_DB_USER,
       password: process.env.SATELLEARTH_API_DB_PASSWORD,
       database: process.env.SATELLEARTH_API_DB_NAME,
-      models: [Alea, Seisme, Disaster, Eruption, Ville, Source, Inondation],
+      models: [
+        Advice,
+        Alea,
+        Disaster,
+        Eruption,
+        Inondation,
+        Search,
+        SearchPlace,
+        Seisme,
+        Source,
+        Tweet,
+        User,
+        Ville,
+      ],
     }),
     SeismeModule,
     EruptionModule,
     InondationModule,
+    DisasterModule,
+    AdviceModule,
+    TweetModule,
+    UserModule,
+    SourceModule,
+    SearchPlaceModule,
+    SearchModule,
   ],
   controllers: [AppController],
   providers: [AppService],

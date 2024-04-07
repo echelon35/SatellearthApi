@@ -1,22 +1,10 @@
-import {
-  DataType,
-  Model,
-  Table,
-  Column,
-  PrimaryKey,
-  AutoIncrement,
-} from 'sequelize-typescript';
+import { DataType, Model, Table, Column } from 'sequelize-typescript';
 
 @Table({
   tableName: 'tweets',
   freezeTableName: true,
 })
 export class Tweet extends Model {
-  @Column(DataType.INTEGER)
-  @PrimaryKey
-  @AutoIncrement
-  id: number;
-
   @Column(DataType.STRING(255))
   tweet_id: string;
 

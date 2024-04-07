@@ -6,11 +6,16 @@ import {
   Column,
   BelongsTo,
   ForeignKey,
+  DefaultScope,
 } from 'sequelize-typescript';
 import { Disaster } from 'src/disaster/disaster.model';
 
+@DefaultScope(() => ({
+  include: [{ model: Disaster, as: 'disaster' }],
+}))
 @Table({
   tableName: 'eruptions',
+  freezeTableName: true,
 })
 export class Eruption extends Model {
   @ForeignKey(() => Disaster)

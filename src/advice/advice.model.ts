@@ -4,7 +4,7 @@ import { DataType, Model, Table, Column } from 'sequelize-typescript';
   tableName: 'advice',
   freezeTableName: true,
 })
-export class AdviceEntity extends Model {
+export class Advice extends Model {
   @Column(DataType.STRING(255))
   mail: string;
   @Column(DataType.TEXT)

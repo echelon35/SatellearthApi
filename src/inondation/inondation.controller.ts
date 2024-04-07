@@ -7,7 +7,7 @@ export class InondationController {
   constructor(private inondationService: InondationService) {}
 
   @Get()
-  async findAll(): Promise<InondationDto[]>{
+  async findAll(): Promise<InondationDto[]> {
     const inondations = await this.inondationService.findAll();
     return inondations;
   }
