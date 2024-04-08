@@ -28,6 +28,8 @@ import { Search } from './search/search.model';
 import { SearchModule } from './search/search.module';
 import { BlockUserModule } from './block-user/block-user.module';
 import { BlockUser } from './block-user/block-user.model';
+import { BolideModule } from './bolide/bolide.module';
+import { Bolide } from './bolide/bolide.model';
 
 @Module({
   imports: [
@@ -46,6 +48,7 @@ import { BlockUser } from './block-user/block-user.model';
         Advice,
         Alea,
         BlockUser,
+        Bolide,
         Disaster,
         Eruption,
         Inondation,
@@ -69,6 +72,7 @@ import { BlockUser } from './block-user/block-user.model';
     SearchPlaceModule,
     SearchModule,
     BlockUserModule,
+    BolideModule,
   ],
   controllers: [AppController],
   providers: [AppService],
