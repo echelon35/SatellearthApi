@@ -4,18 +4,34 @@ import {
   Column,
   Table,
   BelongsTo,
+  ForeignKey,
+  DefaultScope,
 } from 'sequelize-typescript';
 import { Disaster } from 'src/disaster/disaster.model';
+import { User } from 'src/user/user.model';
 
+@DefaultScope(() => ({
+  include: [
+    { model: User, as: 'user' },
+    { model: Disaster, as: 'disaster' },
+  ],
+}))
 @Table({
   tableName: 'favori',
   freezeTableName: true,
 })
-export class FavoriEntity extends Model {
-  @BelongsTo(() => Disaster)
+export class Favori extends Model {
+  @ForeignKey(() => Disaster)
   @Column(DataType.INTEGER)
   disasterId: number;
 
+  @BelongsTo(() => Disaster, 'disasterId')
+  disaster: Disaster;
+
+  @ForeignKey(() => User)
   @Column(DataType.INTEGER)
   userId: number;
+
+  @BelongsTo(() => User, 'userId')
+  user: User;
 }

@@ -14,14 +14,15 @@ import { Disaster } from 'src/disaster/disaster.model';
   include: [{ model: Disaster, as: 'disaster' }],
 }))
 @Table({
-  tableName: 'cyclone',
+  tableName: 'cyclones',
+  freezeTableName: true,
 })
 export class Cyclone extends Model {
   @ForeignKey(() => Disaster)
   @Column(DataType.INTEGER)
   disasterId: number;
 
-  @BelongsTo(() => Disaster)
+  @BelongsTo(() => Disaster, 'disasterId')
   disaster: Disaster;
 
   @Column(DataType.STRING(255))
