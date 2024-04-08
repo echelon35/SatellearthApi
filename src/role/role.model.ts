@@ -2,7 +2,6 @@ import {
   DataType,
   Table,
   Column,
-  PrimaryKey,
   ForeignKey,
   Model,
 } from 'sequelize-typescript';
@@ -24,7 +23,7 @@ export class Role extends Model {
   tableName: 'user_roles',
   freezeTableName: true,
 })
-export class UserRoleEntity extends Model {
+export class UserRole extends Model {
   @ForeignKey(() => Role)
   @Column(DataType.INTEGER)
   roleId: number;

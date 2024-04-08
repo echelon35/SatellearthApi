@@ -6,7 +6,9 @@ import {
   Unique,
   Index,
   Scopes,
+  BelongsToMany,
 } from 'sequelize-typescript';
+import { BlockUser } from 'src/block-user/block-user.model';
 import { Role } from 'src/role/role.model';
 
 @Scopes(() => ({
@@ -123,4 +125,9 @@ export class User extends Model {
   avatar: string;
   @Column(DataType.BOOLEAN)
   public_coordinates: boolean;
+
+  @BelongsToMany(() => User, () => BlockUser)
+  block_users: BlockUser[];
+  @BelongsToMany(() => User, () => BlockUser)
+  blocked_by_users: BlockUser[];
 }

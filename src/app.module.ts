@@ -26,6 +26,8 @@ import { SearchPlace } from './search-place/search-place.model';
 import { SearchPlaceModule } from './search-place/search-place.module';
 import { Search } from './search/search.model';
 import { SearchModule } from './search/search.module';
+import { BlockUserModule } from './block-user/block-user.module';
+import { BlockUser } from './block-user/block-user.model';
 
 @Module({
   imports: [
@@ -43,6 +45,7 @@ import { SearchModule } from './search/search.module';
       models: [
         Advice,
         Alea,
+        BlockUser,
         Disaster,
         Eruption,
         Inondation,
@@ -65,6 +68,7 @@ import { SearchModule } from './search/search.module';
     SourceModule,
     SearchPlaceModule,
     SearchModule,
+    BlockUserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
