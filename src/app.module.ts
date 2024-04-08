@@ -30,6 +30,8 @@ import { BlockUserModule } from './block-user/block-user.module';
 import { BlockUser } from './block-user/block-user.model';
 import { BolideModule } from './bolide/bolide.module';
 import { Bolide } from './bolide/bolide.model';
+import { CommentDisasterModule } from './comment-disaster/comment-disaster.module';
+import { CommentDisaster } from './comment-disaster/comment-disaster.model';
 
 @Module({
   imports: [
@@ -49,6 +51,7 @@ import { Bolide } from './bolide/bolide.model';
         Alea,
         BlockUser,
         Bolide,
+        CommentDisaster,
         Disaster,
         Eruption,
         Inondation,
@@ -73,6 +76,7 @@ import { Bolide } from './bolide/bolide.model';
     SearchModule,
     BlockUserModule,
     BolideModule,
+    CommentDisasterModule,
   ],
   controllers: [AppController],
   providers: [AppService],
