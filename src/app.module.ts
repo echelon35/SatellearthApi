@@ -39,6 +39,11 @@ import { CommentPostModule } from './comment-post/comment-post.module';
 import { CommentPost } from './comment-post/comment-post.model';
 import { Post } from './post/post.model';
 import { PostModule } from './post/post.module';
+import { FavoriModule } from './favori/favori.module';
+import { FollowerModule } from './follower/follower.module';
+import { Follower } from './follower/follower.model';
+import { LikePostModule } from './like-post/like-post.module';
+import { LikePost } from './like-post/like-post.model';
 
 @Module({
   imports: [
@@ -64,7 +69,9 @@ import { PostModule } from './post/post.module';
         Disaster,
         Eruption,
         Favori,
+        Follower,
         Inondation,
+        LikePost,
         Post,
         Search,
         SearchPlace,
@@ -91,6 +98,9 @@ import { PostModule } from './post/post.module';
     CycloneModule,
     CommentPostModule,
     PostModule,
+    FavoriModule,
+    FollowerModule,
+    LikePostModule,
   ],
   controllers: [AppController],
   providers: [AppService],

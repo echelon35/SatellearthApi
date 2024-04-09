@@ -17,7 +17,7 @@ import { User } from 'src/user/user.model';
   ],
 }))
 @Table({
-  tableName: 'favori',
+  tableName: 'favoris',
   freezeTableName: true,
 })
 export class Favori extends Model {
