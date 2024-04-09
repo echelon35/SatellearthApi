@@ -25,7 +25,7 @@ import { User } from 'src/user/user.model';
   tableName: 'posts',
   freezeTableName: true,
 })
-export class PostEntity extends Model {
+export class Post extends Model {
   @ForeignKey(() => Alea)
   @Column(DataType.INTEGER)
   aleaId: number;

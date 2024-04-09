@@ -35,6 +35,10 @@ import { CommentDisaster } from './comment-disaster/comment-disaster.model';
 import { CycloneModule } from './cyclone/cyclone.module';
 import { Cyclone } from './cyclone/cyclone.model';
 import { Favori } from './favori/favori.model';
+import { CommentPostModule } from './comment-post/comment-post.module';
+import { CommentPost } from './comment-post/comment-post.model';
+import { Post } from './post/post.model';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -55,11 +59,13 @@ import { Favori } from './favori/favori.model';
         BlockUser,
         Bolide,
         CommentDisaster,
+        CommentPost,
         Cyclone,
         Disaster,
         Eruption,
         Favori,
         Inondation,
+        Post,
         Search,
         SearchPlace,
         Seisme,
@@ -83,6 +89,8 @@ import { Favori } from './favori/favori.model';
     BolideModule,
     CommentDisasterModule,
     CycloneModule,
+    CommentPostModule,
+    PostModule,
   ],
   controllers: [AppController],
   providers: [AppService],
