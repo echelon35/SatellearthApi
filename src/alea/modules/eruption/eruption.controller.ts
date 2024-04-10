@@ -1,8 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
 import { EruptionDto } from './DTO/eruption.dto';
 import { EruptionService } from './eruption.service';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('eruption')
+@ApiTags('alea/eruption')
+@Controller('alea/eruption')
 export class EruptionController {
   constructor(private eruptionService: EruptionService) {}
 

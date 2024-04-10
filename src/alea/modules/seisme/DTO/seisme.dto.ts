@@ -1,4 +1,4 @@
-import { DisasterDto } from 'src/disaster/DTO/disaster.dto';
+import { DisasterDto } from '../../disaster/DTO/disaster.dto';
 
 export class SeismeDto {
   nb_stations: number;

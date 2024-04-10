@@ -1,7 +1,9 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { AleaService } from './alea.service';
 import { AleaDto } from './DTO/alea.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('aleas')
 @Controller('aleas')
 export class AleaController {
   constructor(private aleaService: AleaService) {}

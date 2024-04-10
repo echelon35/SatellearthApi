@@ -1,8 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
 import { SeismeDto } from './DTO/seisme.dto';
 import { SeismeService } from './seisme.service';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('seisme')
+@ApiTags('alea/seisme')
+@Controller('alea/seisme')
 export class SeismeController {
   constructor(private seismeService: SeismeService) {}
 

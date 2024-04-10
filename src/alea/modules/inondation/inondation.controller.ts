@@ -1,8 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
 import { InondationService } from './inondation.service';
 import { InondationDto } from './DTO/inondation.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('inondation')
+@ApiTags('alea/inondation')
+@Controller('alea/inondation')
 export class InondationController {
   constructor(private inondationService: InondationService) {}
 

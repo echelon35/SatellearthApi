@@ -1,22 +1,23 @@
+import { Geometry } from 'geojson';
 import {
   DataType,
+  Model,
   Table,
   Column,
-  Model,
-  DefaultScope,
   BelongsTo,
   ForeignKey,
+  DefaultScope,
 } from 'sequelize-typescript';
-import { Disaster } from 'src/disaster/disaster.model';
+import { Disaster } from '../disaster/disaster.model';
 
 @DefaultScope(() => ({
   include: [{ model: Disaster, as: 'disaster' }],
 }))
 @Table({
-  tableName: 'bolides',
+  tableName: 'eruptions',
   freezeTableName: true,
 })
-export class Bolide extends Model {
+export class Eruption extends Model {
   @ForeignKey(() => Disaster)
   @Column(DataType.INTEGER)
   disasterId: number;
@@ -24,15 +25,9 @@ export class Bolide extends Model {
   @BelongsTo(() => Disaster)
   disaster: Disaster;
 
-  @Column(DataType.DOUBLE)
-  vitesse: number;
+  @Column(DataType.STRING(255))
+  nom: string;
 
-  @Column(DataType.DOUBLE)
-  energie: number;
-
-  @Column(DataType.DOUBLE)
-  energie_impact: number;
-
-  @Column(DataType.DOUBLE)
-  altitude: number;
+  @Column(DataType.GEOMETRY)
+  surface: Geometry;
 }

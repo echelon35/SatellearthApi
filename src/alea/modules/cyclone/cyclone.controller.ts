@@ -1,8 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
 import { CycloneService } from './cyclone.service';
 import { CycloneDto } from './DTO/cyclone.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('cyclone')
+@ApiTags('alea/cyclone')
+@Controller('alea/cyclone')
 export class CycloneController {
   constructor(private cycloneService: CycloneService) {}
 

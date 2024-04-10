@@ -7,7 +7,7 @@ import {
   ForeignKey,
   DefaultScope,
 } from 'sequelize-typescript';
-import { Disaster } from 'src/disaster/disaster.model';
+import { Disaster } from 'src/alea/modules/disaster/disaster.model';
 import { User } from 'src/user/user.model';
 
 @DefaultScope(() => ({

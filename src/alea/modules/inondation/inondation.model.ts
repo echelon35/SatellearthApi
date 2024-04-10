@@ -8,7 +8,7 @@ import {
   BelongsTo,
   ForeignKey,
 } from 'sequelize-typescript';
-import { Disaster } from 'src/disaster/disaster.model';
+import { Disaster } from '../disaster/disaster.model';
 
 @DefaultScope(() => ({
   include: [{ model: Disaster, as: 'disaster' }],
