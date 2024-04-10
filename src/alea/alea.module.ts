@@ -9,6 +9,7 @@ import { EruptionModule } from './modules/eruption/eruption.module';
 import { InondationModule } from './modules/inondation/inondation.module';
 import { SeismeModule } from './modules/seisme/seisme.module';
 import { DisasterModule } from './modules/disaster/disaster.module';
+import { SourceModule } from './modules/source/source.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { DisasterModule } from './modules/disaster/disaster.module';
     EruptionModule,
     InondationModule,
     SeismeModule,
+    SourceModule,
   ],
   providers: [AleaService],
   controllers: [AleaController],
