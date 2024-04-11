@@ -7,7 +7,6 @@ import {
   Index,
   Scopes,
   BelongsToMany,
-  HasMany,
 } from 'sequelize-typescript';
 import { BlockUser } from 'src/social/modules/block-user/block-user.model';
 import { Role, UserRole } from '../role/role.model';

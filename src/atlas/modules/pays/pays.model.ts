@@ -5,7 +5,7 @@ import { Geometry } from 'geojson';
   tableName: 'pays',
   freezeTableName: true,
 })
-export class PaysEntity extends Model {
+export class Pays extends Model {
   @Column(DataType.STRING(255))
   namefr: string;
   @Column(DataType.STRING(255))
