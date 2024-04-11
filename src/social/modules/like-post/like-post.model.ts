@@ -6,8 +6,8 @@ import {
   ForeignKey,
   BelongsTo,
 } from 'sequelize-typescript';
-import { Post } from 'src/post/post.model';
-import { User } from 'src/user/user.model';
+import { Post } from '../post/post.model';
+import { User } from 'src/auth/modules/user/user.model';
 
 @Table({
   tableName: 'post_likes',

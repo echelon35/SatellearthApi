@@ -7,7 +7,7 @@ import {
   ForeignKey,
 } from 'sequelize-typescript';
 import { Alea } from 'src/alea/alea.model';
-import { User } from 'src/user/user.model';
+import { User } from 'src/auth/modules/user/user.model';
 
 @Scopes(() => ({
   user: {

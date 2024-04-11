@@ -8,7 +8,7 @@ import {
   DefaultScope,
 } from 'sequelize-typescript';
 import { Disaster } from 'src/alea/modules/disaster/disaster.model';
-import { User } from 'src/user/user.model';
+import { User } from 'src/auth/modules/user/user.model';
 
 @DefaultScope(() => ({
   include: [

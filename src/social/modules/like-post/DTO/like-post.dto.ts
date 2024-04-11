@@ -1,5 +1,5 @@
-import { Post } from 'src/post/post.model';
-import { User } from 'src/user/user.model';
+import { User } from 'src/auth/modules/user/user.model';
+import { Post } from '../../post/post.model';
 
 export class LikePostDto {
   liked: boolean;

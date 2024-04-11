@@ -1,6 +1,6 @@
 import { Point } from 'geojson';
-import { Source } from 'src/source/source.model';
-import { Ville } from 'src/ville/ville.model';
+import { Source } from '../../source/source.model';
+import { Ville } from 'src/atlas/modules/ville/ville.model';
 
 export class DisasterDto {
   point: Point;

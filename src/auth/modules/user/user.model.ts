@@ -7,9 +7,10 @@ import {
   Index,
   Scopes,
   BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
-import { BlockUser } from 'src/block-user/block-user.model';
-import { Role } from 'src/role/role.model';
+import { BlockUser } from 'src/social/modules/block-user/block-user.model';
+import { Role, UserRole } from '../role/role.model';
 
 @Scopes(() => ({
   picture: {
@@ -130,4 +131,6 @@ export class User extends Model {
   block_users: BlockUser[];
   @BelongsToMany(() => User, () => BlockUser)
   blocked_by_users: BlockUser[];
+  @BelongsToMany(() => User, () => UserRole)
+  roles: UserRole[];
 }

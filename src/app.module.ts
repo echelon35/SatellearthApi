@@ -29,6 +29,9 @@ import { Source } from './alea/modules/source/source.model';
 import { Tweet } from './social/modules/tweet/tweet.model';
 import { User } from './auth/modules/user/user.model';
 import { Ville } from './atlas/modules/ville/ville.model';
+import { AuthGuard } from './auth/auth.guard';
+import { APP_GUARD } from '@nestjs/core';
+import { Role, UserRole } from './auth/modules/role/role.model';
 
 @Module({
   imports: [
@@ -58,12 +61,14 @@ import { Ville } from './atlas/modules/ville/ville.model';
         Inondation,
         LikePost,
         Post,
+        Role,
         Search,
         SearchPlace,
         Seisme,
         Source,
         Tweet,
         User,
+        UserRole,
         Ville,
       ],
     }),
@@ -73,6 +78,13 @@ import { Ville } from './atlas/modules/ville/ville.model';
     AtlasModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    //Here I make all my routes controlled by the authguard (token is required)
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
+  ],
 })
 export class AppModule {}

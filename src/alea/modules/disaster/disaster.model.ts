@@ -9,9 +9,9 @@ import {
   ForeignKey,
 } from 'sequelize-typescript';
 import { Alea } from 'src/alea/alea.model';
-import { Ville } from 'src/ville/ville.model';
-import { Source } from 'src/source/source.model';
 import { Seisme } from '../seisme/seisme.model';
+import { Source } from '../source/source.model';
+import { Ville } from 'src/atlas/modules/ville/ville.model';
 
 // @DefaultScope(() => ({
 //   attributes: ['id', 'primaryColor', 'secondaryColor', 'producedAt'],

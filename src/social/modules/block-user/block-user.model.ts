@@ -7,7 +7,7 @@ import {
   BelongsTo,
   DefaultScope,
 } from 'sequelize-typescript';
-import { User } from 'src/user/user.model';
+import { User } from 'src/auth/modules/user/user.model';
 
 @DefaultScope(() => ({
   include: [

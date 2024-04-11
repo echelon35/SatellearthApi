@@ -2,10 +2,11 @@ import {
   DataType,
   Table,
   Column,
-  ForeignKey,
   Model,
+  ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
-import { User } from 'src/user/user.model';
+import { User } from '../user/user.model';
 
 @Table({
   tableName: 'roles',
@@ -27,7 +28,11 @@ export class UserRole extends Model {
   @ForeignKey(() => Role)
   @Column(DataType.INTEGER)
   roleId: number;
+  @BelongsTo(() => Role, 'roleId')
+  role: Role;
   @ForeignKey(() => User)
   @Column(DataType.INTEGER)
   userId: number;
+  @BelongsTo(() => User, 'userId')
+  user: User;
 }

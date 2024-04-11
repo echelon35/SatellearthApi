@@ -1,5 +1,5 @@
-import { PostDto } from 'src/post/DTO/post.dto';
-import { UserDto } from 'src/user/DTO/user.dto';
+import { UserDto } from 'src/auth/modules/user/DTO/user.dto';
+import { PostDto } from '../../post/DTO/post.dto';
 
 export class CommentPostDto {
   user: UserDto;
