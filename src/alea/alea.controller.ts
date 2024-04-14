@@ -2,7 +2,7 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { AleaService } from './alea.service';
 import { AleaDto } from './DTO/alea.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/decorators/public.decorator';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @ApiTags('aleas')
 @Controller('aleas')

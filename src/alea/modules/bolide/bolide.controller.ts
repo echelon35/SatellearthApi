@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { BolideService } from './bolide.service';
 import { Bolide } from './bolide.model';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/decorators/public.decorator';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @ApiTags('alea/bolide')
 @Controller('alea/bolide')

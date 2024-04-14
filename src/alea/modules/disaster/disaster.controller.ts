@@ -3,7 +3,7 @@ import { DisasterService } from './disaster.service';
 import { DisasterDto } from './DTO/disaster.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { IDisasterFilter } from './Interfaces/IDisasterFilter';
-import { Public } from 'src/decorators/public.decorator';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @ApiTags('disasters')
 @Controller('disasters')
