@@ -10,6 +10,6 @@ export class InondationService {
   ) {}
 
   async findAndCountAll(): Promise<{ rows: Inondation[]; count: number }> {
-    return this.inondationModel.findAndCountAll({ plain: true });
+    return this.inondationModel.findAndCountAll({ raw: false });
   }
 }

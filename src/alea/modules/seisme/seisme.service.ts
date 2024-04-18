@@ -10,6 +10,6 @@ export class SeismeService {
   ) {}
 
   async findAndCountAll(): Promise<{ rows: Seisme[]; count: number }> {
-    return this.seismeModel.findAndCountAll({ raw: true });
+    return this.seismeModel.findAndCountAll({ raw: false });
   }
 }

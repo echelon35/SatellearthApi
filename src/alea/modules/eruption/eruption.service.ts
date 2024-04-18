@@ -10,6 +10,6 @@ export class EruptionService {
   ) {}
 
   async findAndCountAll(): Promise<{ rows: Eruption[]; count: number }> {
-    return this.eruptionModel.findAndCountAll({ plain: true });
+    return this.eruptionModel.findAndCountAll({ raw: false });
   }
 }

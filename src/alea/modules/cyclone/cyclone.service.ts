@@ -10,6 +10,6 @@ export class CycloneService {
   ) {}
 
   async findAndCountAll(): Promise<{ rows: Cyclone[]; count: number }> {
-    return await this.cycloneModel.findAndCountAll();
+    return await this.cycloneModel.findAndCountAll({ raw: false });
   }
 }
