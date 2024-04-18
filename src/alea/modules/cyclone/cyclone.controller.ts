@@ -11,8 +11,8 @@ export class CycloneController {
 
   @Public()
   @Get()
-  async findAll(): Promise<CycloneDto[]> {
-    const cyclones = await this.cycloneService.findAll();
+  async findAndCountAll(): Promise<{ rows: CycloneDto[]; count: number }> {
+    const cyclones = await this.cycloneService.findAndCountAll();
     return cyclones;
   }
 }

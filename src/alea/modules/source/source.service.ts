@@ -9,7 +9,7 @@ export class SourceService {
     private sourceModel: typeof Source,
   ) {}
 
-  async findAll(): Promise<Source[]> {
-    return await this.sourceModel.findAll();
+  async findAndCountAll(): Promise<{ rows: Source[]; count: number }> {
+    return await this.sourceModel.findAndCountAll();
   }
 }

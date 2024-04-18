@@ -12,7 +12,9 @@ export class DisasterService {
     private disasterModel: typeof Disaster,
   ) {}
 
-  async findAll(params: IDisasterFilter): Promise<Disaster[]> {
+  async findAndCountAll(
+    params: IDisasterFilter,
+  ): Promise<{ rows: Disaster[]; count: number }> {
     const page = params.page || 1;
     const limit = params.limit || 10;
     const sense_order = params.sense_order || 'DESC';
@@ -80,7 +82,7 @@ export class DisasterService {
         : null;
 
     //TODO : Make a repository instead
-    return this.disasterModel.findAll({
+    return this.disasterModel.findAndCountAll({
       where: {
         [Op.and]: [
           condition_fromto,

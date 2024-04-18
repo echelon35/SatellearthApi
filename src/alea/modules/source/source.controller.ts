@@ -7,8 +7,8 @@ export class SourceController {
   constructor(private sourceService: SourceService) {}
 
   @Get()
-  async findAll(): Promise<SourceDto[]> {
-    const sources = await this.sourceService.findAll();
+  async findAndCountAll(): Promise<{ rows: SourceDto[]; count: number }> {
+    const sources = await this.sourceService.findAndCountAll();
     return sources;
   }
 }

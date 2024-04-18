@@ -12,9 +12,11 @@ export class DisasterController {
 
   @Public()
   @Get()
-  async findAll(@Query() query: IDisasterFilter): Promise<DisasterDto[]> {
+  async findAndCountAll(
+    @Query() query: IDisasterFilter,
+  ): Promise<{ rows: DisasterDto[]; count: number }> {
     console.log(query);
-    const disasters = await this.disasterService.findAll(query);
+    const disasters = await this.disasterService.findAndCountAll(query);
     return disasters;
   }
 

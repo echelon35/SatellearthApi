@@ -9,7 +9,7 @@ export class BolideService {
     private bolideModel: typeof Bolide,
   ) {}
 
-  async findAll(): Promise<Bolide[]> {
-    return await this.bolideModel.findAll();
+  async findAndCountAll(): Promise<{ rows: Bolide[]; count: number }> {
+    return await this.bolideModel.findAndCountAll({ plain: true });
   }
 }

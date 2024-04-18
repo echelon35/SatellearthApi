@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from './modules/user/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { ISignUp } from './interfaces/isignup.interface';
 
 @Injectable()
 export class AuthService {
@@ -18,5 +19,10 @@ export class AuthService {
     return {
       access_token: await this.jwtService.signAsync(payload),
     };
+  }
+
+  async signUp(signUp: ISignUp) {
+    const user = await this.userService.create(signUp);
+    return user;
   }
 }

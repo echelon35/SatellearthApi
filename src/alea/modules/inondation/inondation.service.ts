@@ -9,7 +9,7 @@ export class InondationService {
     private inondationModel: typeof Inondation,
   ) {}
 
-  async findAll(): Promise<Inondation[]> {
-    return this.inondationModel.findAll();
+  async findAndCountAll(): Promise<{ rows: Inondation[]; count: number }> {
+    return this.inondationModel.findAndCountAll({ plain: true });
   }
 }

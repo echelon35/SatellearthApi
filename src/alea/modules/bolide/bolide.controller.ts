@@ -11,8 +11,8 @@ export class BolideController {
 
   @Public()
   @Get()
-  async findAll(): Promise<Bolide[]> {
-    const bolides = await this.bolideService.findAll();
+  async findAndCountAll(): Promise<{ rows: Bolide[]; count: number }> {
+    const bolides = await this.bolideService.findAndCountAll();
     return bolides;
   }
 }

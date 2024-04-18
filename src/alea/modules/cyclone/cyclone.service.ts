@@ -9,7 +9,7 @@ export class CycloneService {
     private cycloneModel: typeof Cyclone,
   ) {}
 
-  async findAll(): Promise<Cyclone[]> {
-    return await this.cycloneModel.findAll();
+  async findAndCountAll(): Promise<{ rows: Cyclone[]; count: number }> {
+    return await this.cycloneModel.findAndCountAll();
   }
 }

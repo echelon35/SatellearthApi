@@ -9,7 +9,7 @@ export class SeismeService {
     private seismeModel: typeof Seisme,
   ) {}
 
-  async findAll(): Promise<Seisme[]> {
-    return this.seismeModel.findAll();
+  async findAndCountAll(): Promise<{ rows: Seisme[]; count: number }> {
+    return this.seismeModel.findAndCountAll({ raw: true });
   }
 }

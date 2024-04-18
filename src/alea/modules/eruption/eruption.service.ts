@@ -9,7 +9,7 @@ export class EruptionService {
     private eruptionModel: typeof Eruption,
   ) {}
 
-  async findAll(): Promise<Eruption[]> {
-    return this.eruptionModel.findAll();
+  async findAndCountAll(): Promise<{ rows: Eruption[]; count: number }> {
+    return this.eruptionModel.findAndCountAll({ plain: true });
   }
 }
