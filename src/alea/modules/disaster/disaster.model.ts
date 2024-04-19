@@ -4,21 +4,18 @@ import {
   Table,
   Column,
   Model,
-  Scopes,
   BelongsTo,
   ForeignKey,
+  Scopes,
 } from 'sequelize-typescript';
 import { Alea } from 'src/alea/alea.model';
-import { Seisme } from '../seisme/seisme.model';
 import { Source } from '../source/source.model';
 import { Ville } from 'src/atlas/modules/ville/ville.model';
 
-// @DefaultScope(() => ({
-//   attributes: ['id', 'primaryColor', 'secondaryColor', 'producedAt'],
-// }))
 @Scopes(() => ({
-  seisme: {
-    include: [{ model: Seisme, as: 'seisme' }],
+  minimal: {
+    attributes: ['id'],
+    include: [{ model: Alea, as: 'alea' }],
   },
 }))
 @Table({
@@ -30,7 +27,7 @@ export class Disaster extends Model {
   @Column(DataType.INTEGER)
   aleaId: number;
 
-  @BelongsTo(() => Alea)
+  @BelongsTo(() => Alea, 'aleaId')
   alea: Alea;
 
   @Column({ type: DataType.DATE, unique: 'unique_disaster' })

@@ -82,7 +82,7 @@ export class DisasterService {
         : null;
 
     //TODO : Make a repository instead
-    return this.disasterModel.findAndCountAll({
+    return this.disasterModel.scope('minimal').findAndCountAll({
       where: {
         [Op.and]: [
           condition_fromto,
