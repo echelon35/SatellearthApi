@@ -14,8 +14,8 @@ export class UserService {
     return await this.userModel.findAll();
   }
 
-  async findOne(username: string): Promise<User> {
-    return await this.userModel.findOne({ where: { username: `${username}` } });
+  async findOne(mail: string): Promise<User> {
+    return await this.userModel.findOne({ where: { mail: `${mail}` } });
   }
 
   async create(user: SignupDto) {

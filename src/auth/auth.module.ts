@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './modules/user/user.module';
 import { RoleModule } from './modules/role/role.module';
 import { JwtModule } from '@nestjs/jwt';
-import { auth_secret } from 'config/auth.config';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { LocalStrategy } from './local.strategy';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -10,9 +13,11 @@ import { auth_secret } from 'config/auth.config';
     RoleModule,
     JwtModule.register({
       global: true,
-      secret: auth_secret.secret,
-      signOptions: { expiresIn: auth_secret.token_expiration },
+      secret: process.env.SATELLEARTH_API_SECRET,
+      signOptions: { expiresIn: process.env.SATELLEARTH_API_TOKEN_EXPIRATION },
     }),
   ],
+  controllers: [AuthController],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
 })
 export class AuthModule {}

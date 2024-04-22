@@ -29,14 +29,15 @@ import { Source } from './alea/modules/source/source.model';
 import { Tweet } from './social/modules/tweet/tweet.model';
 import { User } from './auth/modules/user/user.model';
 import { Ville } from './atlas/modules/ville/ville.model';
-import { AuthGuard } from './auth/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { Role, UserRole } from './auth/modules/role/role.model';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
+      isGlobal: true,
     }),
     AleaModule,
     SequelizeModule.forRoot({
@@ -83,7 +84,7 @@ import { Role, UserRole } from './auth/modules/role/role.model';
     //Here I make all my routes controlled by the authguard (token is required)
     {
       provide: APP_GUARD,
-      useClass: AuthGuard,
+      useClass: JwtAuthGuard,
     },
   ],
 })
