@@ -3,6 +3,7 @@ import { UserService } from './modules/user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { ISignUp } from './interfaces/isignup.interface';
 import { compareSync } from 'bcrypt';
+import { UserDto } from './modules/user/DTO/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -11,10 +12,9 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async login(user: any): Promise<any> {
-    const payload = { sub: user.id, username: user.username };
+  async login(user: UserDto): Promise<any> {
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: this.jwtService.sign(user),
     };
   }
 
@@ -25,6 +25,7 @@ export class AuthService {
 
   async validateUser(mail: string, pass: string): Promise<any> {
     const user = await this.userService.findOne(mail);
+    console.log(user);
     if (user && compareSync(pass, user.password)) {
       const { password, ...result } = user;
       return result;

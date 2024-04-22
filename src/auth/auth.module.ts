@@ -13,8 +13,8 @@ import { JwtStrategy } from './jwt.strategy';
     RoleModule,
     JwtModule.register({
       global: true,
-      secret: process.env.SATELLEARTH_API_SECRET,
-      signOptions: { expiresIn: process.env.SATELLEARTH_API_TOKEN_EXPIRATION },
+      secret: 'disaster-secret-key',
+      signOptions: { expiresIn: 604800 },
     }),
   ],
   controllers: [AuthController],
