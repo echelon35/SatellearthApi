@@ -1,0 +1,23 @@
+_id: req_956dd8c222d542e09f225088c9815502
+type: Request
+parentId: fld_1e3dcc6fd5264e8b83dc610cae718ddc
+modified: 1712729854609
+created: 1712648881993
+url: http://localhost:8091/comment-post
+name: COMMENT POST
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1712648881993
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

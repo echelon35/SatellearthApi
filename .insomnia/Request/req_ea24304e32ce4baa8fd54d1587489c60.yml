@@ -1,0 +1,23 @@
+_id: req_ea24304e32ce4baa8fd54d1587489c60
+type: Request
+parentId: fld_d721317713c34f768b4354f315995d66
+modified: 1701868950730
+created: 1701868888732
+url: http://localhost:8091/api/alea/inondation
+name: FIND ALL
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701868888732
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

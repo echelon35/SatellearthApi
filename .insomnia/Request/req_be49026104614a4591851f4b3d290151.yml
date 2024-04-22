@@ -1,0 +1,23 @@
+_id: req_be49026104614a4591851f4b3d290151
+type: Request
+parentId: fld_c3c4e0dbf95946c6a34428407ed307be
+modified: 1713515881764
+created: 1713514321331
+url: http://localhost:8091/api/alea/seisme/disaster/871
+name: FIND ONE BY DISASTER ID
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701181264839
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

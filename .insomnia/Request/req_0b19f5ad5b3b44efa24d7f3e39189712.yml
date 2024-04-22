@@ -1,0 +1,23 @@
+_id: req_0b19f5ad5b3b44efa24d7f3e39189712
+type: Request
+parentId: fld_aba952395ab249ad9111380d01d0f22c
+modified: 1701207244802
+created: 1701207181403
+url: http://localhost:8091/api/aleas/2
+name: FIND ONE ALEA
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701181205212
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,29 @@
+_id: req_9e703931dc96411ba35d9ec389f85860
+type: Request
+parentId: fld_7513f54b5ccc4c56894c7919c770f833
+modified: 1713787510272
+created: 1713777839006
+url: http://localhost:8091/api/profile
+name: PROFILE
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_0961c1009f79454181b6a125e2fa2394
+  - id: pair_02a0ad125d6f4c97aeabbbbed852cce8
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoia2V2aW4iLCJiaW9ncmFwaHkiOiJQYXNzaW9ubsOpIiwiZmFjZWJvb2tfbGluayI6bnVsbCwieW91dHViZV9saW5rIjpudWxsLCJ0d2l0dGVyX2xpbmsiOm51bGwsImluc3RhZ3JhbV9saW5rIjpudWxsLCJ0d2l0Y2hfbGluayI6bnVsbCwibGlua2VkaW5fbGluayI6bnVsbCwibGFzdG5hbWUiOiJicnVuIiwibWFpbCI6ImEud29ybGQub2YuZGlzYXN0ZXJzQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic2F0ZWxsZWFydGgiLCJzb3VyY2UiOm51bGwsInZlcmlmeSI6bnVsbCwicmVnaXN0ZXJfZGF0ZSI6bnVsbCwibGFzdF9jb25uZXhpb24iOiIyMDIzLTEwLTIzVDA2OjA2OjAyLjM2MloiLCJiaXJ0aGRhdGUiOiIxOTkyLTA1LTE4VDAwOjAwOjAwLjAwMFoiLCJwaG9uZSI6bnVsbCwiZ29vZ2xlX2lkIjpudWxsLCJhdmF0YXIiOiJzYXRlbGxlYXJ0aDEucG5nIiwicHVibGljX2Nvb3JkaW5hdGVzIjpudWxsLCJjcmVhdGVkQXQiOiIyMDIzLTAxLTE1VDIxOjMwOjM1LjMwNVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTIzVDA2OjA2OjAyLjM2M1oiLCJpYXQiOjE3MTM3ODc0ODAsImV4cCI6MTcxNDM5MjI4MH0.EjEPvBJK9KQXo5Hi2e66eW1HPRQ54_cXNIDYbjspa6w
+    description: ""
+authentication: {}
+metaSortKey: -1713777839006
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

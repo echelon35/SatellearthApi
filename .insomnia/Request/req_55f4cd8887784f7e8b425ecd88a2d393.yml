@@ -1,0 +1,23 @@
+_id: req_55f4cd8887784f7e8b425ecd88a2d393
+type: Request
+parentId: fld_574aa2df245f44a487b36a81f4b05461
+modified: 1702070748595
+created: 1702070728587
+url: http://localhost:8091/api/alea/bolide
+name: FIND ALL
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1702070728587
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,23 @@
+_id: req_b5bbb4ac7c074c71be1b19d140ed0b26
+type: Request
+parentId: fld_8fbc3127a5564aec850b4be0c1b3cab2
+modified: 1712729843950
+created: 1712650192985
+url: http://localhost:8091/api/aleas/post
+name: POST
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1712650192985
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

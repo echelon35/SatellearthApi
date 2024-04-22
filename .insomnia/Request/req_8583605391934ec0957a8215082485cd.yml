@@ -1,0 +1,23 @@
+_id: req_8583605391934ec0957a8215082485cd
+type: Request
+parentId: fld_67e1e9444d5248339bbd49f837782e0c
+modified: 1712729921871
+created: 1701686739623
+url: http://localhost:8091/villes
+name: FIND NEAREST
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701686739623
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

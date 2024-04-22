@@ -1,0 +1,10 @@
+_id: fld_8a7807ff782e4cdf9150967d47ec4b49
+type: RequestGroup
+parentId: wrk_90d41976d0214a25a25f45fe865dc9b1
+modified: 1712815840938
+created: 1708079373631
+name: SATELLEARTH API
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1701191746026.5
