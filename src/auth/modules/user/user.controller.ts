@@ -18,4 +18,10 @@ export class UserController {
   getProfile(@Request() req) {
     return req.user;
   }
+
+  @Get('picture')
+  async getPicture(@Request() req) {
+    const picture = await this.userService.getPicture(req.user.id);
+    return picture;
+  }
 }

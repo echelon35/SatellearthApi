@@ -15,7 +15,7 @@ export class UserService {
   }
 
   async findOne(mail: string): Promise<User> {
-    return await this.userModel.findOne({
+    return await this.userModel.scope('login').findOne({
       where: { mail: `${mail}` },
       raw: true,
     });
@@ -23,5 +23,11 @@ export class UserService {
 
   async create(user: SignupDto) {
     return user;
+  }
+
+  async getPicture(id: number) {
+    return await this.userModel.scope('picture').findOne({
+      where: { id: id },
+    });
   }
 }

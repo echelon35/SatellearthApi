@@ -32,6 +32,7 @@ import { Ville } from './atlas/modules/ville/ville.model';
 import { APP_GUARD } from '@nestjs/core';
 import { Role, UserRole } from './auth/modules/role/role.model';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { Notification } from './social/modules/notification/notification.model';
 
 @Module({
   imports: [
@@ -61,6 +62,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
         Follower,
         Inondation,
         LikePost,
+        Notification,
         Post,
         Role,
         Search,

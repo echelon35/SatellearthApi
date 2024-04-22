@@ -9,7 +9,11 @@ export class FollowerService {
     private followerModel: typeof Follower,
   ) {}
 
-  async findAll(): Promise<Follower[]> {
-    return await this.followerModel.findAll();
+  async findAllFollowers(userId: number): Promise<Follower[]> {
+    return await this.followerModel.findAll({ where: { id: userId } });
+  }
+
+  async findAllSubscriptions(userId: number): Promise<Follower[]> {
+    return await this.followerModel.findAll({ where: { followerId: userId } });
   }
 }
