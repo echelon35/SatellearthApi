@@ -19,7 +19,7 @@ export class UserController {
     return req.user;
   }
 
-  @Get('picture')
+  @Get('user/picture')
   async getPicture(@Request() req) {
     const picture = await this.userService.getPicture(req.user.id);
     return picture;

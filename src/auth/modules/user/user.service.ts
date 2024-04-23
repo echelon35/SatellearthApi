@@ -20,6 +20,11 @@ export class UserService {
       raw: true,
     });
   }
+
+  async findOneByPk(id: number): Promise<User> {
+    return await this.userModel.findByPk(id, { raw: true });
+  }
+
   async logout(user: User): Promise<boolean> {
     user.last_connexion = new Date();
     const updatedUser = await this.userModel.update(user, {

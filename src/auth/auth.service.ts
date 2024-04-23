@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ISignUp } from './interfaces/isignup.interface';
 import { compareSync } from 'bcrypt';
 import { UserDto } from './modules/user/DTO/user.dto';
+import { IGoogleLogin } from './interfaces/IGoogleLogin.interface';
 
 @Injectable()
 export class AuthService {
@@ -35,5 +36,9 @@ export class AuthService {
   async logout(id: number): Promise<boolean> {
     const user = await this.userService.findOneByPk(id);
     return await this.userService.logout(user);
+  }
+
+  async googleLogin(googleLogin: IGoogleLogin) {
+    console.log(googleLogin);
   }
 }

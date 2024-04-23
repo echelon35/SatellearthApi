@@ -12,4 +12,12 @@ export class NotificationController {
     );
     return { count: notificationsNb };
   }
+
+  @Get('')
+  async getUserNotifications(@Request() req) {
+    const notifications = await this.notificationService.getUserNotifications(
+      req?.user?.id,
+    );
+    return notifications;
+  }
 }

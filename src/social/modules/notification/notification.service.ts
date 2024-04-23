@@ -12,4 +12,8 @@ export class NotificationService {
   async countNotifications(userId: number) {
     return this.notificationModel.count({ where: { userId: userId } });
   }
+
+  async getUserNotifications(userId: number) {
+    return this.notificationModel.findAll({ where: { userId: userId } });
+  }
 }
