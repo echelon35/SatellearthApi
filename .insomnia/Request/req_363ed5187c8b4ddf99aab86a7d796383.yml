@@ -1,0 +1,23 @@
+_id: req_363ed5187c8b4ddf99aab86a7d796383
+type: Request
+parentId: fld_ced6c30132a648e3a88295f38634541c
+modified: 1713860225987
+created: 1713859185038
+url: "{{ _.base_url }}/auth/google"
+name: GOOGLE LOGIN
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1713859185038
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

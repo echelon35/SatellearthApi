@@ -1,25 +1,25 @@
-_id: req_9e703931dc96411ba35d9ec389f85860
+_id: req_a19ca4c9c0424ad3bf17a6628a7507fa
 type: Request
-parentId: fld_7513f54b5ccc4c56894c7919c770f833
-modified: 1713816190279
-created: 1713777839006
-url: http://localhost:8091/api/profile
-name: PROFILE
+parentId: fld_ced6c30132a648e3a88295f38634541c
+modified: 1713855900347
+created: 1713855819912
+url: "{{ _.base_url }}/auth/logout"
+name: LOGOUT
 description: ""
-method: GET
+method: POST
 body: {}
 parameters: []
 headers:
   - name: User-Agent
     value: Insomnia/2023.5.7
-    id: pair_0961c1009f79454181b6a125e2fa2394
-  - id: pair_02a0ad125d6f4c97aeabbbbed852cce8
+    id: pair_9db7c049929347c58344854ef2a60055
+  - id: pair_5feb2ba7caa6406ba8a0fbb97cb49351
     name: Authorization
     value: Bearer
       eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTM4MTYxMzQsImV4cCI6MTcxNDQyMDkzNH0.PBRuZ6vMp-LAf7j6tmKL6ulVDZhAx7O-sgguPridoKg
     description: ""
 authentication: {}
-metaSortKey: -1713777839006
+metaSortKey: -1713855819912
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

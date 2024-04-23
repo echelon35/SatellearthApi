@@ -1,10 +1,10 @@
-_id: req_9e703931dc96411ba35d9ec389f85860
+_id: req_90cd1b9229de4211841b6dd109ef6cae
 type: Request
-parentId: fld_7513f54b5ccc4c56894c7919c770f833
-modified: 1713816190279
-created: 1713777839006
-url: http://localhost:8091/api/profile
-name: PROFILE
+parentId: fld_642c3661ec5840e0b6ea9715e2933b8e
+modified: 1713854055900
+created: 1713853870407
+url: "{{ _.base_url }}/user/notifications"
+name: GET ALL
 description: ""
 method: GET
 body: {}
@@ -12,14 +12,14 @@ parameters: []
 headers:
   - name: User-Agent
     value: Insomnia/2023.5.7
-    id: pair_0961c1009f79454181b6a125e2fa2394
-  - id: pair_02a0ad125d6f4c97aeabbbbed852cce8
+    id: pair_be3292f94fef40e485c1349e628d73fd
+  - id: pair_b5f0cf9e39a74aefb91cbbf265185248
     name: Authorization
     value: Bearer
       eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTM4MTYxMzQsImV4cCI6MTcxNDQyMDkzNH0.PBRuZ6vMp-LAf7j6tmKL6ulVDZhAx7O-sgguPridoKg
     description: ""
 authentication: {}
-metaSortKey: -1713777839006
+metaSortKey: -1713853870407
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

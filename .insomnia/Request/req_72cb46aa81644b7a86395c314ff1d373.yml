@@ -1,9 +1,9 @@
 _id: req_72cb46aa81644b7a86395c314ff1d373
 type: Request
 parentId: fld_e8e8a4af2867441c814528e167c9f5f1
-modified: 1712729884203
+modified: 1713816181379
 created: 1712557036358
-url: http://localhost:8091/block-user
+url: "{{ _.base_url }}/block-users"
 name: BLOCK USER
 description: ""
 method: GET
@@ -12,6 +12,12 @@ parameters: []
 headers:
   - name: User-Agent
     value: Insomnia/2023.5.7
+    id: pair_22465fb07580441b92e093796d4836a2
+  - id: pair_bcd6f3e5cbd2419c9eb8d72cbc8a1cba
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTM4MTYxMzQsImV4cCI6MTcxNDQyMDkzNH0.PBRuZ6vMp-LAf7j6tmKL6ulVDZhAx7O-sgguPridoKg
+    description: ""
 authentication: {}
 metaSortKey: -1712557036358
 isPrivate: false
