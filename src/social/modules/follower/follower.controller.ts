@@ -1,14 +1,24 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Request } from '@nestjs/common';
 import { FollowerService } from './follower.service';
 import { FollowerDto } from './DTO/follower.dto';
 
-@Controller('follower')
+@Controller()
 export class FollowerController {
   constructor(private followerService: FollowerService) {}
 
-  @Get()
-  async findAll(): Promise<FollowerDto[]> {
-    const followers = await this.followerService.findAll();
+  @Get('followers')
+  async getFollowersOfUser(@Request() req): Promise<FollowerDto[]> {
+    const followers = await this.followerService.findAllFollowers(
+      req?.user?.id,
+    );
+    return followers;
+  }
+
+  @Get('subscriptions')
+  async getSubscriptionsOfUser(@Request() req): Promise<FollowerDto[]> {
+    const followers = await this.followerService.findAllSubscriptions(
+      req?.user?.id,
+    );
     return followers;
   }
 }

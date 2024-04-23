@@ -7,10 +7,14 @@ import {
   Index,
   Scopes,
   BelongsToMany,
+  DefaultScope,
 } from 'sequelize-typescript';
 import { BlockUser } from 'src/social/modules/block-user/block-user.model';
 import { Role, UserRole } from '../role/role.model';
 
+@DefaultScope(() => ({
+  attributes: ['username', 'mail', 'id'],
+}))
 @Scopes(() => ({
   picture: {
     attributes: ['avatar'],
@@ -20,7 +24,7 @@ import { Role, UserRole } from '../role/role.model';
     include: [Role],
   },
   login: {
-    attributes: ['mail', 'username'],
+    attributes: ['mail', 'username', 'password', 'id'],
   },
   my_profil: {
     attributes: [

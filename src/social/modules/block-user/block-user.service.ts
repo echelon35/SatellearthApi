@@ -9,7 +9,7 @@ export class BlockUserService {
     private blockUserModel: typeof BlockUser,
   ) {}
 
-  async findAll(): Promise<BlockUser[]> {
-    return this.blockUserModel.findAll();
+  async blockedByUser(idUser: number): Promise<BlockUser[]> {
+    return this.blockUserModel.findAll({ where: { userId: idUser } });
   }
 }

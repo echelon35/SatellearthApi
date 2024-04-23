@@ -11,8 +11,8 @@ import { User } from 'src/auth/modules/user/user.model';
 
 @DefaultScope(() => ({
   include: [
-    { model: User, as: 'user' },
-    { model: User, as: 'follower' },
+    { model: User, as: 'user', attributes: ['username'] },
+    { model: User, as: 'follower', attributes: ['username'] },
   ],
 }))
 @Table({

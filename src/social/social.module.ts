@@ -8,6 +8,7 @@ import { FollowerModule } from './modules/follower/follower.module';
 import { LikePostModule } from './modules/like-post/like-post.module';
 import { PostModule } from './modules/post/post.module';
 import { TweetModule } from './modules/tweet/tweet.module';
+import { NotificationModule } from './modules/notification/notifcation.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TweetModule } from './modules/tweet/tweet.module';
     FavoriModule,
     FollowerModule,
     LikePostModule,
+    NotificationModule,
     PostModule,
     TweetModule,
   ],

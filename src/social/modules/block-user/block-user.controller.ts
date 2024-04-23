@@ -1,14 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Request } from '@nestjs/common';
 import { BlockUserService } from './block-user.service';
 import { BlockUserDto } from './DTO/block-user.dto';
 
-@Controller('block-user')
+@Controller('block-users')
 export class BlockUserController {
   constructor(private blockUserService: BlockUserService) {}
 
   @Get()
-  async findAll(): Promise<BlockUserDto[]> {
-    const blockedUsers = await this.blockUserService.findAll();
+  async blockedByUser(@Request() req): Promise<BlockUserDto[]> {
+    const blockedUsers = await this.blockUserService.blockedByUser(req.user.id);
     return blockedUsers;
   }
 }
