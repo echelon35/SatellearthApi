@@ -25,6 +25,12 @@ export class AuthController {
   }
 
   @HttpCode(HttpStatus.OK)
+  @Post('logout')
+  async logout(@Request() req) {
+    return this.authService.logout(req?.user?.id);
+  }
+
+  @HttpCode(HttpStatus.OK)
   @Public()
   @Post('signup')
   signUp(@Body() signUpDto: SignupDto) {

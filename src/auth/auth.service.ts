@@ -31,4 +31,9 @@ export class AuthService {
     }
     return null;
   }
+
+  async logout(id: number): Promise<boolean> {
+    const user = await this.userService.findOneByPk(id);
+    return await this.userService.logout(user);
+  }
 }

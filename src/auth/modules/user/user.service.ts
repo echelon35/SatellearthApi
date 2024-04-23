@@ -20,6 +20,13 @@ export class UserService {
       raw: true,
     });
   }
+  async logout(user: User): Promise<boolean> {
+    user.last_connexion = new Date();
+    const updatedUser = await this.userModel.update(user, {
+      where: { id: user.id },
+    });
+    return updatedUser.length == 1;
+  }
 
   async create(user: SignupDto) {
     return user;
