@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
 import { SignupDto } from 'src/auth/DTO/signup.dto';
+import { ICreateUser } from './Interfaces/ICreateUser';
 
 @Injectable()
 export class UserService {
@@ -33,13 +34,25 @@ export class UserService {
     return updatedUser.length == 1;
   }
 
-  async create(user: SignupDto) {
-    return user;
-  }
-
   async getPicture(id: number) {
     return await this.userModel.scope('picture').findOne({
       where: { id: id },
     });
+  }
+
+  async findOrCreate(mail: string, user: ICreateUser): Promise<User> {
+    const creation = await this.userModel.findOrCreate({
+      where: { mail: user?.email },
+      raw: true,
+    });
+
+    const newUser = creation[0];
+    if (creation[1]) {
+      newUser.mail = user.email;
+      newUser.firstname = user.firstname;
+      newUser.lastname = user.lastname;
+      newUser.avatar = user.picture;
+    }
+    return newUser;
   }
 }

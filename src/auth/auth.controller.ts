@@ -1,5 +1,4 @@
 import {
-  Body,
   Controller,
   Post,
   HttpCode,
@@ -10,7 +9,6 @@ import {
   Response,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { SignupDto } from './DTO/signup.dto';
 import { Public } from 'src/common/decorators/public.decorator';
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthGuard } from '@nestjs/passport';
@@ -33,12 +31,12 @@ export class AuthController {
     return this.authService.logout(req?.user?.id);
   }
 
-  @HttpCode(HttpStatus.OK)
-  @Public()
-  @Post('signup')
-  signUp(@Body() signUpDto: SignupDto) {
-    return this.authService.signUp(signUpDto);
-  }
+  // @HttpCode(HttpStatus.OK)
+  // @Public()
+  // @Post('signup')
+  // signUp(@Body() signUpDto: SignupDto) {
+  //   return this.authService.signUp(signUpDto);
+  // }
 
   @Get('google')
   @Public()
