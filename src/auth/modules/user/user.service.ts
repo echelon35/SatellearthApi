@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
-import { SignupDto } from 'src/auth/DTO/signup.dto';
 import { ICreateUser } from './Interfaces/ICreateUser';
 
 @Injectable()
@@ -41,17 +40,23 @@ export class UserService {
   }
 
   async findOrCreate(mail: string, user: ICreateUser): Promise<User> {
-    const creation = await this.userModel.findOrCreate({
+    const [userFound, created] = await this.userModel.findOrCreate({
       where: { mail: user?.email },
       raw: true,
+      defaults: {
+        mail: user.email,
+        username: user.username,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        avatar: user.picture,
+      },
     });
 
-    const newUser = creation[0];
-    if (creation[1]) {
-      newUser.mail = user.email;
-      newUser.firstname = user.firstname;
-      newUser.lastname = user.lastname;
-      newUser.avatar = user.picture;
+    let newUser;
+    if (created) {
+      newUser = userFound.get();
+    } else {
+      newUser = userFound;
     }
     return newUser;
   }

@@ -5,8 +5,9 @@ import {
   HttpStatus,
   UseGuards,
   Request,
-  Get,
   Response,
+  Get,
+  ForbiddenException,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Public } from 'src/common/decorators/public.decorator';
@@ -47,7 +48,13 @@ export class AuthController {
   @Public()
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Request() req, @Response() res) {
-    await this.authService.googleLogin(req.user);
-    res.send('<script>window.close()</script>');
+    const token = await this.authService.googleLogin(req.user);
+    if (token) {
+      return res.redirect(
+        `http://localhost:4200/home?access_token=${token.access_token}`,
+      );
+    } else {
+      throw new ForbiddenException();
+    }
   }
 }

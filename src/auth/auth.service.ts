@@ -39,8 +39,6 @@ export class AuthService {
       googleLogin,
     );
 
-    //In the end, connect it
-    console.log(googleLogin);
     return {
       access_token: this.jwtService.sign(user),
     };
