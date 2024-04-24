@@ -4,12 +4,23 @@ import { Disaster } from './disaster.model';
 import { IDisasterFilter } from './Interfaces/IDisasterFilter';
 import { Alea } from 'src/alea/alea.model';
 import { col, fn, where, Op } from 'sequelize';
+import { IPaginationOptions } from 'src/common/Interfaces/IPaginationOptions';
+import { SeismeService } from '../seisme/seisme.service';
+import { BolideService } from '../bolide/bolide.service';
+import { InondationService } from '../inondation/inondation.service';
+import { EruptionService } from '../eruption/eruption.service';
+import { CycloneService } from '../cyclone/cyclone.service';
 
 @Injectable()
 export class DisasterService {
   constructor(
     @InjectModel(Disaster)
     private disasterModel: typeof Disaster,
+    private seismeService: SeismeService,
+    private bolideService: BolideService,
+    private inondationService: InondationService,
+    private eruptionService: EruptionService,
+    private cycloneService: CycloneService,
   ) {}
 
   async findAndCountAll(
@@ -169,5 +180,61 @@ export class DisasterService {
         ],
       },
     });
+  }
+
+  async findForFeed(params: IPaginationOptions): Promise<Disaster[]> {
+    const page = params.page || 1;
+    const limit = params.limit || 10;
+    const sense_order = params.sense_order || 'DESC';
+    const field_order = params.field_order || 'dernier_releve';
+
+    const condition_offset = page * limit - limit;
+
+    return this.disasterModel.scope('minimal').findAll({
+      limit: limit,
+      offset: condition_offset,
+      order: [[field_order, sense_order]],
+    });
+  }
+
+  async fromDisasterToAlea(disasters: Disaster[]): Promise<any> {
+    const allDisasters = [];
+
+    for (const disaster of disasters) {
+      switch (disaster.alea.name) {
+        case 'seisme':
+          const seisme = await this.seismeService.findOneByDisaster(
+            disaster.id,
+          );
+          allDisasters.push(seisme);
+          break;
+        case 'bolide':
+          const bolide = await this.bolideService.findOneByDisaster(
+            disaster.id,
+          );
+          allDisasters.push(bolide);
+          break;
+        case 'inondation':
+          const inondation = await this.inondationService.findOneByDisaster(
+            disaster.id,
+          );
+          allDisasters.push(inondation);
+          break;
+        case 'eruption':
+          const eruption = await this.eruptionService.findOneByDisaster(
+            disaster.id,
+          );
+          allDisasters.push(eruption);
+          break;
+        case 'cyclone':
+          const cyclone = await this.cycloneService.findOneByDisaster(
+            disaster.id,
+          );
+          allDisasters.push(cyclone);
+          break;
+      }
+    }
+
+    return allDisasters;
   }
 }

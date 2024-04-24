@@ -11,8 +11,23 @@ import {
 import { Alea } from 'src/alea/alea.model';
 import { Source } from '../source/source.model';
 import { Ville } from 'src/atlas/modules/ville/ville.model';
+import { Seisme } from '../seisme/seisme.model';
+import { Inondation } from '../inondation/inondation.model';
+import { Bolide } from '../bolide/bolide.model';
+import { Eruption } from '../eruption/eruption.model';
 
 @Scopes(() => ({
+  feed: {
+    attributes: [],
+    include: [
+      { model: Alea, as: 'alea' },
+      { model: Bolide, as: 'bolide' },
+      { model: Eruption, as: 'eruption' },
+      { model: Inondation, as: 'inondation' },
+      { model: Seisme, as: 'seisme' },
+      { model: Ville, as: 'ville' },
+    ],
+  },
   minimal: {
     attributes: ['id'],
     include: [{ model: Alea, as: 'alea' }],

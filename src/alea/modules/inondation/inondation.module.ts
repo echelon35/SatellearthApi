@@ -8,5 +8,6 @@ import { Inondation } from './inondation.model';
   providers: [InondationService],
   controllers: [InondationController],
   imports: [SequelizeModule.forFeature([Inondation])],
+  exports: [InondationService],
 })
 export class InondationModule {}

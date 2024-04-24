@@ -12,4 +12,8 @@ export class CycloneService {
   async findAndCountAll(): Promise<{ rows: Cyclone[]; count: number }> {
     return await this.cycloneModel.findAndCountAll({ raw: false });
   }
+
+  async findOneByDisaster(disasterId: number): Promise<Cyclone> {
+    return this.cycloneModel.findOne({ where: { disasterId: disasterId } });
+  }
 }

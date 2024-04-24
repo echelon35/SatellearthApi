@@ -12,4 +12,8 @@ export class BolideService {
   async findAndCountAll(): Promise<{ rows: Bolide[]; count: number }> {
     return await this.bolideModel.findAndCountAll({ raw: false });
   }
+
+  async findOneByDisaster(disasterId: number): Promise<Bolide> {
+    return this.bolideModel.findOne({ where: { disasterId: disasterId } });
+  }
 }
