@@ -12,7 +12,7 @@ import {
 import { AuthService } from './auth.service';
 import { Public } from 'src/common/decorators/public.decorator';
 import { LocalAuthGuard } from './local-auth.guard';
-import { AuthGuard } from '@nestjs/passport';
+import { GoogleAuthGuard } from './google-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -41,12 +41,12 @@ export class AuthController {
 
   @Get('google')
   @Public()
-  @UseGuards(AuthGuard('google'))
+  @UseGuards(GoogleAuthGuard)
   async googleAuth() {}
 
   @Get('google/redirect')
   @Public()
-  @UseGuards(AuthGuard('google'))
+  @UseGuards(GoogleAuthGuard)
   async googleAuthRedirect(@Request() req, @Response() res) {
     const token = await this.authService.googleLogin(req.user);
     if (token) {

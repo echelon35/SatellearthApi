@@ -10,6 +10,7 @@ import { BolideService } from '../bolide/bolide.service';
 import { InondationService } from '../inondation/inondation.service';
 import { EruptionService } from '../eruption/eruption.service';
 import { CycloneService } from '../cyclone/cyclone.service';
+import { IFeedObject } from 'src/social/modules/post/Interfaces/IFeed';
 
 @Injectable()
 export class DisasterService {
@@ -200,7 +201,7 @@ export class DisasterService {
   async fromDisasterToAlea(
     disasters: Disaster[],
     scope?: string,
-  ): Promise<Disaster[]> {
+  ): Promise<IFeedObject[]> {
     const allDisasters = [];
 
     for (const disaster of disasters) {
@@ -210,31 +211,31 @@ export class DisasterService {
             disaster.id,
             scope,
           );
-          allDisasters.push(seisme);
+          allDisasters.push({ type: 'alea', content: seisme });
           break;
         case 'bolide':
           const bolide = await this.bolideService.findOneByDisaster(
             disaster.id,
           );
-          allDisasters.push(bolide);
+          allDisasters.push({ type: 'alea', content: bolide });
           break;
         case 'inondation':
           const inondation = await this.inondationService.findOneByDisaster(
             disaster.id,
           );
-          allDisasters.push(inondation);
+          allDisasters.push({ type: 'alea', content: inondation });
           break;
         case 'eruption':
           const eruption = await this.eruptionService.findOneByDisaster(
             disaster.id,
           );
-          allDisasters.push(eruption);
+          allDisasters.push({ type: 'alea', content: eruption });
           break;
         case 'cyclone':
           const cyclone = await this.cycloneService.findOneByDisaster(
             disaster.id,
           );
-          allDisasters.push(cyclone);
+          allDisasters.push({ type: 'alea', content: cyclone });
           break;
       }
     }
