@@ -197,7 +197,10 @@ export class DisasterService {
     });
   }
 
-  async fromDisasterToAlea(disasters: Disaster[]): Promise<any> {
+  async fromDisasterToAlea(
+    disasters: Disaster[],
+    scope?: string,
+  ): Promise<Disaster[]> {
     const allDisasters = [];
 
     for (const disaster of disasters) {
@@ -205,6 +208,7 @@ export class DisasterService {
         case 'seisme':
           const seisme = await this.seismeService.findOneByDisaster(
             disaster.id,
+            scope,
           );
           allDisasters.push(seisme);
           break;

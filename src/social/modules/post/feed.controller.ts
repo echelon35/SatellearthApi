@@ -2,6 +2,7 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { PostService } from './post.service';
 import { DisasterService } from 'src/alea/modules/disaster/disaster.service';
 import { Public } from 'src/common/decorators/public.decorator';
+import { IDisasterFeed } from './Interfaces/IDisasterFeed';
 @Controller('feed')
 export class FeedController {
   constructor(
@@ -11,7 +12,7 @@ export class FeedController {
 
   @Get()
   @Public()
-  async makeFeed(@Query() query): Promise<any> {
+  async makeFeed(@Query() query): Promise<IDisasterFeed[]> {
     //Un feed se compose :
     //-> D'aléas créés par la Terre
     //-> D'actions des amis de l'utilisateurs
@@ -21,9 +22,16 @@ export class FeedController {
     //Ne doit pas reproposer plusieurs fois la même chose
 
     const disasters = await this.disasterService.findForFeed(query);
-    const allDisasters =
-      await this.disasterService.fromDisasterToAlea(disasters);
+    const allDisasters = await this.disasterService.fromDisasterToAlea(
+      disasters,
+      'feed',
+    );
 
-    return allDisasters;
+    const disastersFeed = allDisasters.map((disaster) => ({
+      type: 'alea',
+      content: disaster,
+    }));
+
+    return disastersFeed;
   }
 }

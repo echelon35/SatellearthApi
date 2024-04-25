@@ -6,11 +6,18 @@ import {
   DefaultScope,
   BelongsTo,
   ForeignKey,
+  Scopes,
 } from 'sequelize-typescript';
 import { Disaster } from '../disaster/disaster.model';
 
 @DefaultScope(() => ({
   include: [{ model: Disaster, as: 'disaster' }],
+}))
+@Scopes(() => ({
+  feed: {
+    attributes: ['magnitude', 'type_magnitude'],
+    include: [{ model: Disaster.scope('feed'), as: 'disaster' }],
+  },
 }))
 @Table({
   tableName: 'seismes',
