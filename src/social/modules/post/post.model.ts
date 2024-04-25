@@ -17,7 +17,6 @@ import { User } from 'src/auth/modules/user/user.model';
         model: User,
         as: 'user',
         required: true,
-        attributes: ['username,avatar'],
       },
     ],
   },
@@ -33,7 +32,7 @@ export class Post extends Model {
   @ForeignKey(() => User)
   @Column(DataType.INTEGER)
   userId: number;
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, 'userId')
   user: User;
   @Column(DataType.GEOMETRY)
   point: any;

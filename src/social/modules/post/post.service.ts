@@ -27,12 +27,8 @@ export class PostService {
     let invisibleUsersId = Array.from(invisibleUsers, (blocked) =>
       blocked.userId === user.id ? blocked.userId : blocked.blockedId,
     );
-    // const invisibleUsersId = invisibleUsers.map((blocked) => {
-    //   blocked.userId === user.id ? blocked.userId : blocked.blockedId;
-    // });
     invisibleUsersId = [...new Set(invisibleUsersId)];
-    console.log(invisibleUsersId);
-    const posts = await this.postModel.findAll({
+    const posts = await this.postModel.scope('user').findAll({
       include: [
         {
           model: User,
@@ -54,7 +50,7 @@ export class PostService {
   }
 
   async findAllForPublicFeed(): Promise<IFeedObject[]> {
-    const posts = await this.postModel.findAll();
+    const posts = await this.postModel.scope('user').findAll();
     const postsFeed = posts.map((item) => ({
       type: 'post',
       content: item,
