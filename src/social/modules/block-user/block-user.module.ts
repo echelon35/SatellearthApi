@@ -8,5 +8,6 @@ import { BlockUserController } from './block-user.controller';
   providers: [BlockUserService],
   imports: [SequelizeModule.forFeature([BlockUser])],
   controllers: [BlockUserController],
+  exports: [BlockUserService],
 })
 export class BlockUserModule {}

@@ -13,7 +13,22 @@ import { BlockUser } from 'src/social/modules/block-user/block-user.model';
 import { Role, UserRole } from '../role/role.model';
 
 @DefaultScope(() => ({
-  attributes: ['username', 'mail', 'id'],
+  attributes: [
+    'firstname',
+    'lastname',
+    'username',
+    'mail',
+    'register_date',
+    'birthdate',
+    'phone',
+    'avatar',
+    'biography',
+    'facebook_link',
+    'youtube_link',
+    'instagram_link',
+    'twitch_link',
+    'public_coordinates',
+  ],
 }))
 @Scopes(() => ({
   picture: {
@@ -27,23 +42,6 @@ import { Role, UserRole } from '../role/role.model';
     attributes: ['mail', 'username', 'password', 'id'],
   },
   my_profil: {
-    attributes: [
-      'firstname',
-      'lastname',
-      'mail',
-      'register_date',
-      'birthdate',
-      'phone',
-      'avatar',
-      'biography',
-      'facebook_link',
-      'youtube_link',
-      'instagram_link',
-      'twitch_link',
-      'public_coordinates',
-    ],
-  },
-  profil_public: {
     attributes: [
       'firstname',
       'lastname',

@@ -7,12 +7,20 @@ import {
   BelongsTo,
   ForeignKey,
   Scopes,
+  DefaultScope,
 } from 'sequelize-typescript';
 import { Alea } from 'src/alea/alea.model';
 import { Source } from '../source/source.model';
 import { Ville } from 'src/atlas/modules/ville/ville.model';
 
+@DefaultScope(() => ({
+  include: [{ model: Alea, as: 'alea', attributes: ['name'] }],
+}))
 @Scopes(() => ({
+  feed: {
+    attributes: ['createdAt', 'updatedAt', 'id', 'point'],
+    include: [{ model: Alea, as: 'alea' }],
+  },
   minimal: {
     attributes: ['id'],
     include: [{ model: Alea, as: 'alea' }],

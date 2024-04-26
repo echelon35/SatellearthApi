@@ -8,5 +8,6 @@ import { CycloneController } from './cyclone.controller';
   providers: [CycloneService],
   imports: [SequelizeModule.forFeature([Cyclone])],
   controllers: [CycloneController],
+  exports: [CycloneService],
 })
 export class CycloneModule {}

@@ -5,6 +5,7 @@ import {
   Column,
   Scopes,
   ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
 import { Alea } from 'src/alea/alea.model';
 import { User } from 'src/auth/modules/user/user.model';
@@ -16,7 +17,6 @@ import { User } from 'src/auth/modules/user/user.model';
         model: User,
         as: 'user',
         required: true,
-        attributes: ['username,avatar'],
       },
     ],
   },
@@ -32,6 +32,8 @@ export class Post extends Model {
   @ForeignKey(() => User)
   @Column(DataType.INTEGER)
   userId: number;
+  @BelongsTo(() => User, 'userId')
+  user: User;
   @Column(DataType.GEOMETRY)
   point: any;
   @Column(DataType.TEXT)

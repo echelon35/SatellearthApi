@@ -8,5 +8,6 @@ import { BolideController } from './bolide.controller';
   providers: [BolideService],
   imports: [SequelizeModule.forFeature([Bolide])],
   controllers: [BolideController],
+  exports: [BolideService],
 })
 export class BolideModule {}

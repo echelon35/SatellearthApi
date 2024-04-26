@@ -21,8 +21,12 @@ export class UserService {
     });
   }
 
-  async findOneByPk(id: number): Promise<User> {
-    return await this.userModel.findByPk(id, { raw: true });
+  async findOneByPk(id: number, scope: string = ''): Promise<User> {
+    if (scope != '') {
+      return await this.userModel.scope(scope).findByPk(id, { raw: true });
+    } else {
+      return await this.userModel.findByPk(id, { raw: true });
+    }
   }
 
   async logout(user: User): Promise<boolean> {

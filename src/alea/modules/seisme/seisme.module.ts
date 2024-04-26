@@ -8,5 +8,6 @@ import { SeismeController } from './seisme.controller';
   imports: [SequelizeModule.forFeature([Seisme])],
   providers: [SeismeService],
   controllers: [SeismeController],
+  exports: [SeismeService],
 })
 export class SeismeModule {}

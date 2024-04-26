@@ -8,5 +8,6 @@ import { EruptionController } from './eruption.controller';
   imports: [SequelizeModule.forFeature([Eruption])],
   providers: [EruptionService],
   controllers: [EruptionController],
+  exports: [EruptionService],
 })
 export class EruptionModule {}

@@ -89,7 +89,13 @@ export class SeismeService {
     });
   }
 
-  async findOneByDisaster(disasterId: number): Promise<Seisme> {
-    return this.seismeModel.findOne({ where: { disasterId: disasterId } });
+  async findOneByDisaster(disasterId: number, scope?: string): Promise<Seisme> {
+    if (scope) {
+      return this.seismeModel
+        .scope(scope)
+        .findOne({ where: { disasterId: disasterId } });
+    } else {
+      return this.seismeModel.findOne({ where: { disasterId: disasterId } });
+    }
   }
 }
