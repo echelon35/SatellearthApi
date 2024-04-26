@@ -1,0 +1,29 @@
+_id: req_2ba3a89c6e214351acce61387732bf3f
+type: Request
+parentId: fld_e8e8a4af2867441c814528e167c9f5f1
+modified: 1714048371790
+created: 1714048326064
+url: "{{ _.base_url }}/invisible-users"
+name: INVISIBLE USERS
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_75778e2e1d1e4d379780eb6491ea10b5
+  - id: pair_1b6b13d8689f45dfbb10c7b2e10fd02c
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTM4MTYxMzQsImV4cCI6MTcxNDQyMDkzNH0.PBRuZ6vMp-LAf7j6tmKL6ulVDZhAx7O-sgguPridoKg
+    description: ""
+authentication: {}
+metaSortKey: -1714048326064
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

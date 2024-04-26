@@ -1,0 +1,29 @@
+_id: req_91a033ead5994cedb7c44cf7757334bd
+type: Request
+parentId: fld_4827c09dbb29436b85ca3382b8fda1ba
+modified: 1714054032497
+created: 1713985203933
+url: "{{ _.base_url }}/feed"
+name: FEED
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_32d409d860d9420d8adee23a7e5b3846
+  - id: pair_c1b2d17cb3e544cebd9cf602a376ccbb
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTQwNTQwMjIsImV4cCI6MTcxNDY1ODgyMn0.cn_U71rV4sK9vauHSKk1wh0Drf6X_i5yoveEBUO4S_c
+    description: ""
+authentication: {}
+metaSortKey: -1713985203933
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
