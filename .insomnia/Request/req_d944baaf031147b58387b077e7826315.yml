@@ -1,0 +1,29 @@
+_id: req_d944baaf031147b58387b077e7826315
+type: Request
+parentId: fld_642c3661ec5840e0b6ea9715e2933b8e
+modified: 1713854080836
+created: 1713853859422
+url: "{{ _.base_url }}/user/notifications/count"
+name: COUNT
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_425ac7ec75e14a7db4caace67c69b2d5
+  - id: pair_03d2829c4301422d9e6e66a5d9203795
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTM4MTYxMzQsImV4cCI6MTcxNDQyMDkzNH0.PBRuZ6vMp-LAf7j6tmKL6ulVDZhAx7O-sgguPridoKg
+    description: ""
+authentication: {}
+metaSortKey: -1713853859422
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

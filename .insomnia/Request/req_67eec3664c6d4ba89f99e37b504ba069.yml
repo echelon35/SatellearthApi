@@ -1,0 +1,29 @@
+_id: req_67eec3664c6d4ba89f99e37b504ba069
+type: Request
+parentId: fld_8fbc3127a5564aec850b4be0c1b3cab2
+modified: 1714120082883
+created: 1714119534149
+url: "{{ _.base_url }}/post/like/47"
+name: MY LIKE
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_24be564e0f674424b71f473a749f9ba1
+  - id: pair_eaca0d67d2a04776944eeae4e95320e4
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTQxMTk5ODgsImV4cCI6MTcxNDcyNDc4OH0.2VnEBzJn7FgpqplblST8RCy2EHjXMlHZjZ2XH-Ij2EU
+    description: ""
+authentication: {}
+metaSortKey: -1714119534149
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

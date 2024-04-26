@@ -1,0 +1,23 @@
+_id: req_5fcea1baff244b158f7e8335983f4e03
+type: Request
+parentId: fld_c3c4e0dbf95946c6a34428407ed307be
+modified: 1701207277034
+created: 1701181175772
+url: http://localhost:8091/api/alea/seisme/68
+name: FIND ONE SEISME
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701181264889
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

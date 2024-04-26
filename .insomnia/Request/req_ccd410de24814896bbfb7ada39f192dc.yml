@@ -1,0 +1,23 @@
+_id: req_ccd410de24814896bbfb7ada39f192dc
+type: Request
+parentId: fld_c2ba201c3cad4796baf4f6defd5efe78
+modified: 1713511593930
+created: 1701467247511
+url: http://localhost:8091/api/disasters?field_order=dernier_releve&sense_order=DESC
+name: FIND ALL DISASTERS
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701467247511
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

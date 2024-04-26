@@ -1,0 +1,23 @@
+_id: req_7809d569ddb94593a22a267eaef2dd02
+type: Request
+parentId: fld_8fbc3127a5564aec850b4be0c1b3cab2
+modified: 1714118227855
+created: 1714118054063
+url: "{{ _.base_url }}/post/likes/47"
+name: LIKES BY REACTION
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1714118054063
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

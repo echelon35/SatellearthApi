@@ -3,6 +3,7 @@ import { Column, DataType, Model, Table } from 'sequelize-typescript';
 @Table({
   tableName: 'aleas',
   freezeTableName: true,
+  timestamps: false,
 })
 export class Alea extends Model {
   @Column(DataType.STRING(255))
@@ -14,6 +15,6 @@ export class Alea extends Model {
   @Column({ defaultValue: true })
   disponible: boolean;
 
-  @Column(DataType.ARRAY)
+  @Column(DataType.ARRAY(DataType.STRING))
   keywords: string[];
 }

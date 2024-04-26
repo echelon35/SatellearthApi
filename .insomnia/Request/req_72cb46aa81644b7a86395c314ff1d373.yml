@@ -1,0 +1,29 @@
+_id: req_72cb46aa81644b7a86395c314ff1d373
+type: Request
+parentId: fld_e8e8a4af2867441c814528e167c9f5f1
+modified: 1714050704238
+created: 1712557036358
+url: "{{ _.base_url }}/block-users"
+name: BLOCK USER
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_22465fb07580441b92e093796d4836a2
+  - id: pair_bcd6f3e5cbd2419c9eb8d72cbc8a1cba
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoia2JydW4ucHJvQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiZGlzYXN0ZXIiLCJpZCI6MiwiaWF0IjoxNzE0MDUwNjkyLCJleHAiOjE3MTQ2NTU0OTJ9.hLD-uvUWQ0_MdHdnbE0Y8FYFYQTB6mlmN9QqpC2IvPM
+    description: ""
+authentication: {}
+metaSortKey: -1712557036358
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,29 @@
+_id: req_a19ca4c9c0424ad3bf17a6628a7507fa
+type: Request
+parentId: fld_ced6c30132a648e3a88295f38634541c
+modified: 1714120066273
+created: 1713855819912
+url: "{{ _.base_url }}/auth/logout"
+name: LOGOUT
+description: ""
+method: POST
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+    id: pair_9db7c049929347c58344854ef2a60055
+  - id: pair_5feb2ba7caa6406ba8a0fbb97cb49351
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiYS53b3JsZC5vZi5kaXNhc3RlcnNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzYXRlbGxlYXJ0aCIsImlkIjoxLCJpYXQiOjE3MTQxMTk5ODgsImV4cCI6MTcxNDcyNDc4OH0.2VnEBzJn7FgpqplblST8RCy2EHjXMlHZjZ2XH-Ij2EU
+    description: ""
+authentication: {}
+metaSortKey: -1713855819912
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

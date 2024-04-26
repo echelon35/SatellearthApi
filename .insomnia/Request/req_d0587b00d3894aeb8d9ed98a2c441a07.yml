@@ -1,0 +1,23 @@
+_id: req_d0587b00d3894aeb8d9ed98a2c441a07
+type: Request
+parentId: fld_8a7807ff782e4cdf9150967d47ec4b49
+modified: 1713788674214
+created: 1713788596250
+url: http://{{ _.base_url }}
+name: SWAGGER
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1713788596250
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

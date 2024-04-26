@@ -1,0 +1,31 @@
+_id: req_bd4408db3809452b8e47a501fbf9f226
+type: Request
+parentId: fld_ced6c30132a648e3a88295f38634541c
+modified: 1714054021415
+created: 1713768583385
+url: "{{ _.base_url }}/auth/login"
+name: LOGIN
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"mail": "a.world.of.disasters@gmail.com",
+    	"password": "Elise2208"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1713768583385
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

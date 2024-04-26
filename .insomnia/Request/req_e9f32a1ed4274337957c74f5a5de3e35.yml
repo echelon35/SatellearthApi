@@ -1,0 +1,23 @@
+_id: req_e9f32a1ed4274337957c74f5a5de3e35
+type: Request
+parentId: fld_5baa95834ad74d278390b26c50f7d692
+modified: 1713788436596
+created: 1712590511828
+url: "{{ _.base_url }}/comment-disaster"
+name: COMMENT DISASTER
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1712590511828
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

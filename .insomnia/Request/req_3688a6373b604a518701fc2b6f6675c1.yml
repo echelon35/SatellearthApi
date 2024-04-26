@@ -1,0 +1,23 @@
+_id: req_3688a6373b604a518701fc2b6f6675c1
+type: Request
+parentId: fld_aba952395ab249ad9111380d01d0f22c
+modified: 1712821556745
+created: 1701202333106
+url: http://localhost:8091/api/aleas
+name: FIND ALL ALEAS
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701181205112
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

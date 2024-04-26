@@ -1,0 +1,23 @@
+_id: req_e664af6455584994b320acdf6ddf3224
+type: Request
+parentId: fld_c2ba201c3cad4796baf4f6defd5efe78
+modified: 1701460900194
+created: 1701460853971
+url: http://localhost:8091/api/disasters/68
+name: FIND ONE DISASTER
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701460853971
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

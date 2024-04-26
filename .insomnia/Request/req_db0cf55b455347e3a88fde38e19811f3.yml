@@ -1,0 +1,23 @@
+_id: req_db0cf55b455347e3a88fde38e19811f3
+type: Request
+parentId: fld_8fbc3127a5564aec850b4be0c1b3cab2
+modified: 1714116225890
+created: 1714116104554
+url: "{{ _.base_url }}/post/likes/count/23"
+name: LIKES COUNT
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1714116104554
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,31 @@
+_id: req_ebb0a0b37d2b4d90bbf0e7dda3505e4c
+type: Request
+parentId: fld_0f9d59898dcb4567bd77821f35b593a7
+modified: 1701856787711
+created: 1701853173550
+url: http://localhost:8091/api/source
+name: FIND OR CREATE
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"id": "USGS",
+    	"icone": "usgs.png"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1701853173550
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,23 @@
+_id: req_5d283ffab07543c38ea2e0939ff1346f
+type: Request
+parentId: fld_c2ba201c3cad4796baf4f6defd5efe78
+modified: 1713510701468
+created: 1713510687802
+url: http://localhost:8091/api/disasters/count?&from=04-12-2024&to=04-19-2024
+name: COUNT DISASTERS
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1713510687802
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
