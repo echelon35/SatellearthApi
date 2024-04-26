@@ -29,7 +29,11 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Post('logout')
   async logout(@Request() req) {
-    return this.authService.logout(req?.user?.id);
+    if (req?.user != null) {
+      return this.authService.logout(req?.user?.id);
+    } else {
+      return false;
+    }
   }
 
   // @HttpCode(HttpStatus.OK)

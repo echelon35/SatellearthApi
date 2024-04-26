@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   async logout(id: number): Promise<boolean> {
-    const user = await this.userService.findOneByPk(id);
+    const user = await this.userService.findOneByPk(id, 'login');
     return await this.userService.logout(user);
   }
 
