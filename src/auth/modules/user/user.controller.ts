@@ -1,7 +1,16 @@
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Request,
+  Response,
+  UseGuards,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './DTO/user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @Controller()
 export class UserController {
@@ -19,9 +28,21 @@ export class UserController {
     return req.user;
   }
 
-  @Get('user/picture')
-  async getPicture(@Request() req) {
-    const picture = await this.userService.getPicture(req.user.id);
-    return picture;
+  @Public()
+  @Get('user/picture/:userId')
+  async getPicture(@Param() params, @Response() res) {
+    if (params.userId != null) {
+      const picture = await this.userService.getPicture(
+        parseInt(params.userId),
+      );
+      if (picture != null) {
+        res.writeHead(200, { 'Content-Type': 'image/png' });
+        return res.end(picture);
+      } else {
+        throw new NotFoundException();
+      }
+    } else {
+      throw new NotFoundException();
+    }
   }
 }

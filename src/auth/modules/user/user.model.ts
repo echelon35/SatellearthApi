@@ -14,6 +14,7 @@ import { Role, UserRole } from '../role/role.model';
 
 @DefaultScope(() => ({
   attributes: [
+    'id',
     'firstname',
     'lastname',
     'username',
@@ -21,7 +22,6 @@ import { Role, UserRole } from '../role/role.model';
     'register_date',
     'birthdate',
     'phone',
-    'avatar',
     'biography',
     'facebook_link',
     'youtube_link',

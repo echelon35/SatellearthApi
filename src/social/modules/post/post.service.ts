@@ -6,6 +6,8 @@ import { User } from 'src/auth/modules/user/user.model';
 import { Op } from 'sequelize';
 import { BlockUserService } from '../block-user/block-user.service';
 import { IFeedObject } from './Interfaces/IFeed';
+import { promises as fs } from 'fs';
+import { uploadFolder } from 'src/common/constants/allPaths';
 
 @Injectable()
 export class PostService {
@@ -18,6 +20,16 @@ export class PostService {
   async findAll(): Promise<PostDto[]> {
     const posts = await this.postModel.findAll();
     return posts;
+  }
+
+  async findPicture(postId: number): Promise<Buffer> {
+    const post = await this.postModel.findByPk(postId);
+    if (post?.medias[0] != null) {
+      const picture = await fs.readFile(uploadFolder + post.medias[0]);
+      return picture;
+    } else {
+      return null;
+    }
   }
 
   async findAllForFeedFilteredForUser(user: User): Promise<IFeedObject[]> {
