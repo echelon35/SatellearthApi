@@ -1,7 +1,8 @@
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Request, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './DTO/user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @Controller()
 export class UserController {
@@ -19,9 +20,13 @@ export class UserController {
     return req.user;
   }
 
-  @Get('user/picture')
-  async getPicture(@Request() req) {
-    const picture = await this.userService.getPicture(req.user.id);
+  @Public()
+  @Get('user/picture/:userId')
+  async getPicture(@Param() params) {
+    const picture =
+      params.userId != null
+        ? await this.userService.getPicture(params.userId)
+        : null;
     return picture;
   }
 }
