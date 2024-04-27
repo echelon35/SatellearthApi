@@ -1,9 +1,9 @@
 _id: req_c92a8aea10be4015bcf97478da3a7d78
 type: Request
 parentId: fld_7513f54b5ccc4c56894c7919c770f833
-modified: 1713854745814
+modified: 1714219764404
 created: 1713816207399
-url: "{{ _.base_url }}/user/picture"
+url: "{{ _.base_url }}/user/picture/1"
 name: PICTURE
 description: ""
 method: GET
