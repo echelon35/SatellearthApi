@@ -43,6 +43,8 @@ import { Role, UserRole } from '../role/role.model';
   },
   my_profil: {
     attributes: [
+      'id',
+      'username',
       'firstname',
       'lastname',
       'mail',

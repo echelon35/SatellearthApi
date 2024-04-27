@@ -23,6 +23,10 @@ export class UserService {
     });
   }
 
+  async findMe(id: number): Promise<User> {
+    return await this.userModel.scope('my_profil').findByPk(id);
+  }
+
   async findOneByPk(id: number, scope: string = ''): Promise<User> {
     if (scope != '') {
       return await this.userModel.scope(scope).findByPk(id, { raw: true });

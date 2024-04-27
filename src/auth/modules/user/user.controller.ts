@@ -5,11 +5,9 @@ import {
   Param,
   Request,
   Response,
-  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './DTO/user.dto';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Public } from 'src/common/decorators/public.decorator';
 
 @Controller()
@@ -22,10 +20,14 @@ export class UserController {
     return users;
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
+  async findMe(@Request() req): Promise<UserDto> {
+    if (req.user != null) {
+      const me = await this.userService.findMe(req?.user?.id);
+      return me;
+    } else {
+      throw new NotFoundException();
+    }
   }
 
   @Public()
