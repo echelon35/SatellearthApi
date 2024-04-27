@@ -15,5 +15,6 @@ import { BlockUserModule } from '../block-user/block-user.module';
   ],
   providers: [PostService],
   controllers: [PostController, FeedController],
+  exports: [PostService],
 })
 export class PostModule {}

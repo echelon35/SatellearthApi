@@ -69,4 +69,8 @@ export class PostService {
     }));
     return postsFeed;
   }
+
+  async countUserPosts(userId: number): Promise<number> {
+    return await this.postModel.count({ where: { userId: userId } });
+  }
 }
