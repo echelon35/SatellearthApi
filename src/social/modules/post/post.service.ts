@@ -7,7 +7,7 @@ import { Op } from 'sequelize';
 import { BlockUserService } from '../block-user/block-user.service';
 import { IFeedObject } from './Interfaces/IFeed';
 import { promises as fs } from 'fs';
-import { userFiles } from 'src/common/constants/allPaths';
+import { uploadFolder } from 'src/common/constants/allPaths';
 
 @Injectable()
 export class PostService {
@@ -25,8 +25,7 @@ export class PostService {
   async findPicture(postId: number): Promise<Buffer> {
     const post = await this.postModel.findByPk(postId);
     if (post?.medias[0] != null) {
-      console.log('yes');
-      const picture = await fs.readFile(userFiles + post.medias[0]);
+      const picture = await fs.readFile(uploadFolder + post.medias[0]);
       return picture;
     } else {
       return null;
