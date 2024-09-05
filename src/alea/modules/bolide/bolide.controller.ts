@@ -1,8 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { BolideService } from './bolide.service';
 import { Bolide } from './bolide.model';
 import { ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/common/decorators/public.decorator';
+import { IBolideFilter } from './Interfaces/IBolideFilter';
 
 @ApiTags('alea/bolide')
 @Controller('alea/bolide')
@@ -11,8 +12,10 @@ export class BolideController {
 
   @Public()
   @Get()
-  async findAndCountAll(): Promise<{ rows: Bolide[]; count: number }> {
-    const bolides = await this.bolideService.findAndCountAll();
+  async findAndCountAll(
+    @Query() query: IBolideFilter,
+  ): Promise<{ rows: Bolide[]; count: number }> {
+    const bolides = await this.bolideService.findAndCountAll(query);
     return bolides;
   }
 }

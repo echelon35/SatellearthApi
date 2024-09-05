@@ -4,6 +4,7 @@ import { Seisme } from './seisme.model';
 import { ISeismeFilter } from './Interfaces/ISeismeFilter';
 import { Op, col, fn, where } from 'sequelize';
 import { Disaster } from '../disaster/disaster.model';
+import * as moment from 'moment';
 
 @Injectable()
 export class SeismeService {
@@ -17,25 +18,21 @@ export class SeismeService {
   ): Promise<{ rows: Seisme[]; count: number }> {
     const page = query.page || 1;
     const limit = query.limit || 10;
-    const sense_order = query.sense_order || 'DESC';
-    const field_order = query.field_order || 'dernier_releve';
-    const condition_from_1 = query.from
-      ? { premier_releve: { [Op.gte]: new Date(`${query.from}`) } }
-      : null;
-    const condition_from_2 = query.from
-      ? { dernier_releve: { [Op.gte]: new Date(`${query.from}`) } }
-      : null;
-    const condition_to_1 = query.to
+    const premier_releve = moment(`${query.from}`).utc().format('MM-DD-YYYY');
+    const dernier_releve = moment(`${query.to}`).utc().format('MM-DD-YYYY');
+    // const sense_order = query.sense_order || 'DESC';
+    // const field_order = query.field_order || 'dernier_releve';
+    const condition_from = query.from
       ? {
-          premier_releve: {
-            [Op.lte]: new Date().setDate(new Date(`${query.to}`).getDate() + 1),
+          dernier_releve: {
+            [Op.gte]: premier_releve,
           },
         }
       : null;
-    const condition_to_2 = query.to
+    const condition_to = query.to
       ? {
           dernier_releve: {
-            [Op.lte]: new Date().setDate(new Date(`${query.to}`).getDate() + 1),
+            [Op.lte]: dernier_releve,
           },
         }
       : null;
@@ -60,16 +57,6 @@ export class SeismeService {
     const condition_intersects =
       q_bbox != null ? where(intersects, true) : null;
 
-    const condition_fromto =
-      query.from || query.to
-        ? {
-            [Op.or]: [
-              { [Op.and]: [condition_from_1, condition_to_1] },
-              { [Op.and]: [condition_from_2, condition_to_2] },
-            ],
-          }
-        : null;
-
     return this.seismeModel.findAndCountAll({
       raw: false,
       where: {
@@ -79,7 +66,7 @@ export class SeismeService {
         {
           model: Disaster,
           required: true,
-          where: condition_fromto,
+          where: { [Op.and]: [condition_from, condition_to] },
           as: 'disaster',
         },
       ],
