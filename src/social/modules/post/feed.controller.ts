@@ -3,6 +3,7 @@ import { PostService } from './post.service';
 import { DisasterService } from 'src/alea/modules/disaster/disaster.service';
 import { Public } from 'src/common/decorators/public.decorator';
 import { IFeedObject } from './Interfaces/IFeed';
+import { shuffle } from 'src/common/helpers/ShuffleArray';
 @Controller('feed')
 export class FeedController {
   constructor(
@@ -20,7 +21,6 @@ export class FeedController {
 
     //Le feed doit proposer prioritairement des évènements récents
     //Ne doit pas reproposer plusieurs fois la même chose
-    console.log(req.user);
 
     const disasters = await this.disasterService.findForFeed(query);
     const allDisasters = await this.disasterService.fromDisasterToAlea(
@@ -28,7 +28,7 @@ export class FeedController {
       'feed',
     );
 
-    let posts;
+    let posts: IFeedObject[];
     if (req.user) {
       posts = await this.postService.findAllForFeedFilteredForUser(req.user);
     } else {
@@ -37,6 +37,9 @@ export class FeedController {
 
     const feed = posts.concat(allDisasters);
 
-    return feed;
+    //Shuffle the array
+    const shuffle_feed = shuffle(feed);
+
+    return shuffle_feed;
   }
 }
