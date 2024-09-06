@@ -15,7 +15,7 @@ export class DisasterController {
   async findAndCountAll(
     @Query() query: IDisasterFilter,
   ): Promise<{ rows: DisasterDto[]; count: number }> {
-    console.log(query);
+    //console.log(query);
     const disasters = await this.disasterService.findAndCountAll(query);
     return disasters;
   }
@@ -23,7 +23,7 @@ export class DisasterController {
   @Public()
   @Get('/count')
   async count(@Query() query: IDisasterFilter): Promise<number> {
-    console.log(query);
+    //console.log(query);
     const disasters_count = await this.disasterService.count(query);
     return disasters_count;
   }

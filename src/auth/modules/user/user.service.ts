@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
 import { ICreateUser } from './Interfaces/ICreateUser';
+import { promises as fs } from 'fs';
+import { avatarFolder } from 'src/common/constants/allPaths';
 
 @Injectable()
 export class UserService {
@@ -21,6 +23,10 @@ export class UserService {
     });
   }
 
+  async findMe(id: number): Promise<User> {
+    return await this.userModel.scope('my_profil').findByPk(id);
+  }
+
   async findOneByPk(id: number, scope: string = ''): Promise<User> {
     if (scope != '') {
       return await this.userModel.scope(scope).findByPk(id, { raw: true });
@@ -37,10 +43,16 @@ export class UserService {
     return updatedUser.length == 1;
   }
 
-  async getPicture(id: number) {
-    return await this.userModel.scope('picture').findOne({
+  async getPicture(id: number): Promise<Buffer> {
+    const user = await this.userModel.scope('picture').findOne({
       where: { id: id },
     });
+    if (user?.avatar != null) {
+      const picture = await fs.readFile(avatarFolder + user.avatar);
+      return picture;
+    } else {
+      return null;
+    }
   }
 
   async findOrCreate(mail: string, user: ICreateUser): Promise<User> {

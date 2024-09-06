@@ -8,5 +8,6 @@ import { FollowerController } from './follower.controller';
   providers: [FollowerService],
   imports: [SequelizeModule.forFeature([Follower])],
   controllers: [FollowerController],
+  exports: [FollowerService],
 })
 export class FollowerModule {}

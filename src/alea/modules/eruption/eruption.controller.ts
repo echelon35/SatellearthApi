@@ -1,8 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { EruptionDto } from './DTO/eruption.dto';
 import { EruptionService } from './eruption.service';
 import { ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/common/decorators/public.decorator';
+import { IEruptionFilter } from './Interfaces/IEruptionFilter';
 
 @ApiTags('alea/eruption')
 @Controller('alea/eruption')
@@ -11,8 +12,10 @@ export class EruptionController {
 
   @Public()
   @Get()
-  async findAndCountAll(): Promise<{ rows: EruptionDto[]; count: number }> {
-    const eruptions = await this.eruptionService.findAndCountAll();
+  async findAndCountAll(
+    @Query() query: IEruptionFilter,
+  ): Promise<{ rows: EruptionDto[]; count: number }> {
+    const eruptions = await this.eruptionService.findAndCountAll(query);
     return eruptions;
   }
 }
