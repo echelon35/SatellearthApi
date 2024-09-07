@@ -60,3 +60,5 @@ files/avatar/
 files/uploads/
 
 docker/backup.dump/
+
+.env.prod.env
