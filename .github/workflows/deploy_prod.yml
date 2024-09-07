@@ -26,7 +26,7 @@ jobs:
 
     # 4. Build Nest project
     - name: Build Nest project
-      run: npm run start:prod
+      run: npm run build
 
     # 5. Add SSH key for connection
     - name: Add SSH key
