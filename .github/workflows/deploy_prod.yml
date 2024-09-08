@@ -40,7 +40,6 @@ jobs:
 
     - name: Create env file
       run: |
-          cd ./dist
           touch .env
           echo SATELLEARTH_API_DB_HOST=${{ secrets.SATELLEARTH_API_DB_HOST }} >> .env
           echo SATELLEARTH_API_DB_USER=${{ secrets.SATELLEARTH_API_DB_USER }} >> .env
@@ -56,12 +55,12 @@ jobs:
           echo GMAIL_PASS=${{ secrets.GMAIL_PASS }} >> .env
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
-          ls
 
     # 6. Déployer le dossier dist sur le serveur
     - name: Deploy to server
       run: |
         scp -r ./dist/* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
+        scp -r .env root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
