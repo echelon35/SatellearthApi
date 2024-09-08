@@ -40,7 +40,7 @@ jobs:
 
     - name: Create env file
       run: |
-          cd /dist
+          cd ./dist
           touch .env
           echo SATELLEARTH_API_DB_HOST=${{ secrets.SATELLEARTH_API_DB_HOST }} >> .env
           echo SATELLEARTH_API_DB_USER=${{ secrets.SATELLEARTH_API_DB_USER }} >> .env
@@ -56,6 +56,7 @@ jobs:
           echo GMAIL_PASS=${{ secrets.GMAIL_PASS }} >> .env
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
+          ls
 
     # 6. Déployer le dossier dist sur le serveur
     - name: Deploy to server
