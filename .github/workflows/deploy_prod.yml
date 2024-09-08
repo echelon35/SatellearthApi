@@ -38,6 +38,27 @@ jobs:
       run: |
         ssh-keyscan -H ec2-13-36-38-31.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
 
+    - name: Create env file
+      run: |
+          cd ./dist
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          echo SATELLEARTH_API_DB_HOST=${{ secrets.SATELLEARTH_API_DB_HOST }} >> .env
+          echo SATELLEARTH_API_DB_USER=${{ secrets.SATELLEARTH_API_DB_USER }} >> .env
+          echo SATELLEARTH_API_DB_PASSWORD=${{ secrets.SATELLEARTH_API_DB_PASSWORD }} >> .env
+          echo SATELLEARTH_API_DB_NAME=${{ secrets.SATELLEARTH_API_DB_NAME }} >> .env
+          echo SATELLEARTH_API_DB_PORT=5432 >> .env
+          echo DB_DRIVER="postgres" >> .env
+          echo SATELLEARTH_API_PORT=${{ secrets.SATELLEARTH_API_PORT }} >> .env
+          echo GOOGLE_API=${{ secrets.GOOGLE_API }} >> .env
+          echo GOOGLE_API_SECRET=${{ secrets.GOOGLE_API_SECRET }}  >> .env
+          echo SATELLEARTH_API_SECRET=${{ secrets.SATELLEARTH_API_SECRET }} >> .env
+          echo GMAIL_USER="a.world.of.disasters@gmail.com" >> .env
+          echo GMAIL_PASS=${{ secrets.GMAIL_PASS }} >> .env
+          echo BASE_URI=${{ secrets.BASE_URI }} >> .env
+          cat .env
+
     # 6. Déployer le dossier dist sur le serveur
     - name: Deploy to server
       run: |
