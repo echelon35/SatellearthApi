@@ -1,38 +1,40 @@
-import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AleaModule } from './alea/alea.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
-import { Alea } from './alea/alea.model';
-import { Search } from './search/search.model';
-import { SearchModule } from './search/search.module';
-import { Bolide } from './alea/modules/bolide/bolide.model';
-import { Cyclone } from './alea/modules/cyclone/cyclone.model';
-import { Disaster } from './alea/modules/disaster/disaster.model';
-import { Eruption } from './alea/modules/eruption/eruption.model';
-import { Inondation } from './alea/modules/inondation/inondation.model';
-import { Seisme } from './alea/modules/seisme/seisme.model';
-import { AuthModule } from './auth/auth.module';
-import { SocialModule } from './social/social.module';
-import { AtlasModule } from './atlas/atlas.module';
-import { Advice } from './social/modules/advice/advice.model';
-import { BlockUser } from './social/modules/block-user/block-user.model';
-import { CommentDisaster } from './social/modules/comment-disaster/comment-disaster.model';
-import { CommentPost } from './social/modules/comment-post/comment-post.model';
-import { Favori } from './social/modules/favori/favori.model';
-import { Follower } from './social/modules/follower/follower.model';
-import { LikePost } from './social/modules/like-post/like-post.model';
-import { Post } from './social/modules/post/post.model';
-import { SearchPlace } from './search/modules/search-place/search-place.model';
-import { Source } from './alea/modules/source/source.model';
-import { Tweet } from './social/modules/tweet/tweet.model';
-import { User } from './auth/modules/user/user.model';
-import { Ville } from './atlas/modules/ville/ville.model';
+
 import { APP_GUARD } from '@nestjs/core';
-import { Role, UserRole } from './auth/modules/role/role.model';
-import { JwtAuthGuard } from './auth/jwt-auth.guard';
-import { Notification } from './social/modules/notification/notification.model';
+import { Advice } from './Domain/Models/advice.model';
+import { Notification } from './Domain/Models/notification.model';
+import { Alea } from './Domain/Models/alea.model';
+import { BlockUser } from './Domain/Models/block-user.model';
+import { Bolide } from './Domain/Models/bolide.model';
+import { CommentDisaster } from './Domain/Models/comment-disaster.model';
+import { CommentPost } from './Domain/Models/comment-post.model';
+import { Cyclone } from './Domain/Models/cyclone.model';
+import { Disaster } from './Domain/Models/disaster.model';
+import { Eruption } from './Domain/Models/eruption.model';
+import { Favori } from './Domain/Models/favori.model';
+import { Follower } from './Domain/Models/follower.model';
+import { Inondation } from './Domain/Models/inondation.model';
+import { LikePost } from './Domain/Models/like-post.model';
+import { Role, UserRole } from './Domain/Models/role.model';
+import { SearchPlace } from './Domain/Models/search-place.model';
+import { Seisme } from './Domain/Models/seisme.model';
+import { Source } from './Domain/Models/source.model';
+import { User } from './Domain/Models/user.model';
+import { Ville } from './Domain/Models/ville.model';
+import { JwtAuthGuard } from './Guards/jwt-auth.guard';
+import { AuthModule } from './Modules/auth.module';
+import { SearchModule } from './Modules/search.module';
+import { SocialModule } from './Modules/social.module';
+import { Post } from './Domain/Models/post.model';
+import { Search } from './Domain/Models/search.model';
+import { Module } from '@nestjs/common/decorators';
+import { DisasterModule } from './Modules/disaster.module';
+import { UserModule } from './Modules/user.module';
+import { AdviceModule } from './Modules/advice.module';
+import { AtlasModule } from './Modules/atlas.module';
 
 @Module({
   imports: [
@@ -40,7 +42,6 @@ import { Notification } from './social/modules/notification/notification.model';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    AleaModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: process.env.SATELLEARTH_API_DB_HOST || 'localhost',
@@ -69,7 +70,6 @@ import { Notification } from './social/modules/notification/notification.model';
         SearchPlace,
         Seisme,
         Source,
-        Tweet,
         User,
         UserRole,
         Ville,
@@ -77,8 +77,10 @@ import { Notification } from './social/modules/notification/notification.model';
     }),
     SearchModule,
     AuthModule,
-    SocialModule,
     AtlasModule,
+    DisasterModule,
+    SocialModule,
+    AdviceModule,
   ],
   controllers: [AppController],
   providers: [
