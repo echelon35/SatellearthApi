@@ -28,6 +28,9 @@ jobs:
     - name: Build Nest project
       run: npm run build
 
+     # Run ESLint
+    - uses: eslint/github-action@v0
+
     # 5. Add SSH key for connection
     - name: Add SSH key
       uses: webfactory/ssh-agent@v0.5.3
