@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op, col, fn, where } from 'sequelize';
 import * as moment from 'moment';
-import { Seisme } from 'src/Domain/Models/seisme.model';
-import { ISeismeFilter } from 'src/Domain/Interfaces/ISeismeFilter';
-import { Disaster } from 'src/Domain/Models/disaster.model';
+import { Seisme } from '../../Domain/Models/seisme.model';
+import { ISeismeFilter } from '../../Domain/Interfaces/ISeismeFilter';
+import { Disaster } from '../../Domain/Models/disaster.model';
 
 @Injectable()
 export class SeismeService {

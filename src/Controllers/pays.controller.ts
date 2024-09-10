@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { PaysService } from 'src/Application/Services/pays.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { PaysDto } from 'src/Domain/DTO/pays.dto';
+import { PaysService } from '../Application/Services/pays.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { PaysDto } from '../Domain/DTO/pays.dto';
 
 @Controller('pays')
 export class PaysController {

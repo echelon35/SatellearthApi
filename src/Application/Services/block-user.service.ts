@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
-import { BlockUser } from 'src/Domain/Models/block-user.model';
+import { BlockUser } from '../../Domain/Models/block-user.model';
 
 @Injectable()
 export class BlockUserService {

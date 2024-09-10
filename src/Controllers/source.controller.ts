@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { SourceService } from 'src/Application/Services/source.service';
-import { SourceDto } from 'src/Domain/DTO/source.dto';
+import { SourceService } from '../Application/Services/source.service';
+import { SourceDto } from '../Domain/DTO/source.dto';
 
 @Controller('source')
 export class SourceController {

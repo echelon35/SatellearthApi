@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compareSync } from 'bcrypt';
 import { UserService } from './user.service';
-import { UserDto } from 'src/Domain/DTO/user.dto';
-import { IGoogleLogin } from 'src/Domain/Interfaces/IGoogleLogin.interface';
+import { UserDto } from '../../Domain/DTO/user.dto';
+import { IGoogleLogin } from '../../Domain/Interfaces/IGoogleLogin.interface';
 
 @Injectable()
 export class AuthService {

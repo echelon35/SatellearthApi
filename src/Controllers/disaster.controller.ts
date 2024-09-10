@@ -1,9 +1,9 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { DisasterService } from 'src/Application/Services/disaster.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { DisasterDto } from 'src/Domain/DTO/disaster.dto';
-import { IDisasterFilter } from 'src/Domain/Interfaces/IDisasterFilter';
+import { DisasterService } from '../Application/Services/disaster.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { DisasterDto } from '../Domain/DTO/disaster.dto';
+import { IDisasterFilter } from '../Domain/Interfaces/IDisasterFilter';
 
 @ApiTags('disasters')
 @Controller('disasters')

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { UserModule } from './user.module';
-import { GoogleStrategy } from 'src/Strategy/google.strategy';
-import { AuthService } from 'src/Application/Services/auth.service';
-import { AuthController } from 'src/Controllers/auth.controller';
-import { LocalStrategy } from 'src/Strategy/local.strategy';
-import { JwtStrategy } from 'src/Strategy/jwt.strategy';
+import { GoogleStrategy } from '../Strategy/google.strategy';
+import { AuthService } from '../Application/Services/auth.service';
+import { AuthController } from '../Controllers/auth.controller';
+import { LocalStrategy } from '../Strategy/local.strategy';
+import { JwtStrategy } from '../Strategy/jwt.strategy';
 
 @Module({
   imports: [

@@ -1,9 +1,9 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { EruptionService } from 'src/Application/Services/eruption.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { EruptionDto } from 'src/Domain/DTO/eruption.dto';
-import { IEruptionFilter } from 'src/Domain/Interfaces/IEruptionFilter';
+import { EruptionService } from '../Application/Services/eruption.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { EruptionDto } from '../Domain/DTO/eruption.dto';
+import { IEruptionFilter } from '../Domain/Interfaces/IEruptionFilter';
 
 @ApiTags('alea/eruption')
 @Controller('alea/eruption')

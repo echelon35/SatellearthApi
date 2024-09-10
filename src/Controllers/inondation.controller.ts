@@ -1,8 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { InondationService } from 'src/Application/Services/inondation.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { InondationDto } from 'src/Domain/DTO/inondation.dto';
+import { InondationService } from '../Application/Services/inondation.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { InondationDto } from '../Domain/DTO/inondation.dto';
 
 @ApiTags('alea/inondation')
 @Controller('alea/inondation')

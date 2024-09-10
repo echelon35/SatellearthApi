@@ -1,6 +1,6 @@
 import { Controller, Get, Request } from '@nestjs/common';
-import { FollowerService } from 'src/Application/Services/follower.service';
-import { FollowerDto } from 'src/Domain/DTO/follower.dto';
+import { FollowerService } from '../Application/Services/follower.service';
+import { FollowerDto } from '../Domain/DTO/follower.dto';
 
 @Controller()
 export class FollowerController {

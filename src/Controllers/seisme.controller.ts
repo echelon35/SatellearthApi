@@ -1,10 +1,10 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { SeismeService } from 'src/Application/Services/seisme.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { SeismeDto } from 'src/Domain/DTO/seisme.dto';
-import { ISeismeFilter } from 'src/Domain/Interfaces/ISeismeFilter';
-import { Seisme } from 'src/Domain/Models/seisme.model';
+import { SeismeService } from '../Application/Services/seisme.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { SeismeDto } from '../Domain/DTO/seisme.dto';
+import { ISeismeFilter } from '../Domain/Interfaces/ISeismeFilter';
+import { Seisme } from '../Domain/Models/seisme.model';
 
 @ApiTags('alea/seisme')
 @Controller('alea/seisme')

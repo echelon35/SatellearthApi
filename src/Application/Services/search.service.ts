@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Search } from 'src/Domain/Models/search.model';
+import { Search } from '../../Domain/Models/search.model';
 
 @Injectable()
 export class SearchService {

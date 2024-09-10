@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import * as moment from 'moment';
 import { col, fn, Op, where } from 'sequelize';
-import { IBolideFilter } from 'src/Domain/Interfaces/IBolideFilter';
-import { Bolide } from 'src/Domain/Models/bolide.model';
-import { Disaster } from 'src/Domain/Models/disaster.model';
+import { IBolideFilter } from '../../Domain/Interfaces/IBolideFilter';
+import { Bolide } from '../../Domain/Models/bolide.model';
+import { Disaster } from '../../Domain/Models/disaster.model';
 
 @Injectable()
 export class BolideService {

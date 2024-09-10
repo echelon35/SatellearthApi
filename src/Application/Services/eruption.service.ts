@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import * as moment from 'moment';
 import { col, fn, Op, where } from 'sequelize';
-import { IEruptionFilter } from 'src/Domain/Interfaces/IEruptionFilter';
-import { Disaster } from 'src/Domain/Models/disaster.model';
-import { Eruption } from 'src/Domain/Models/eruption.model';
+import { IEruptionFilter } from '../../Domain/Interfaces/IEruptionFilter';
+import { Disaster } from '../../Domain/Models/disaster.model';
+import { Eruption } from '../../Domain/Models/eruption.model';
 
 @Injectable()
 export class EruptionService {

@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { AdviceService } from 'src/Application/Services/advice.service';
-import { AdviceDto } from 'src/Domain/DTO/advice.dto';
+import { AdviceService } from '../Application/Services/advice.service';
+import { AdviceDto } from '../Domain/DTO/advice.dto';
 
 @Controller('advice')
 export class AdviceController {

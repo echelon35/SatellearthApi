@@ -6,11 +6,11 @@ import {
   Request,
   Response,
 } from '@nestjs/common';
-import { FollowerService } from 'src/Application/Services/follower.service';
-import { PostService } from 'src/Application/Services/post.service';
-import { UserService } from 'src/Application/Services/user.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { UserDto } from 'src/Domain/DTO/user.dto';
+import { FollowerService } from '../Application/Services/follower.service';
+import { PostService } from '../Application/Services/post.service';
+import { UserService } from '../Application/Services/user.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { UserDto } from '../Domain/DTO/user.dto';
 
 @Controller()
 export class UserController {

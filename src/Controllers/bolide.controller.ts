@@ -1,9 +1,9 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { BolideService } from 'src/Application/Services/bolide.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { IBolideFilter } from 'src/Domain/Interfaces/IBolideFilter';
-import { Bolide } from 'src/Domain/Models/bolide.model';
+import { BolideService } from '../Application/Services/bolide.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { IBolideFilter } from '../Domain/Interfaces/IBolideFilter';
+import { Bolide } from '../Domain/Models/bolide.model';
 
 @ApiTags('alea/bolide')
 @Controller('alea/bolide')

@@ -1,9 +1,9 @@
 import { Controller, Get, Query, Request } from '@nestjs/common';
-import { DisasterService } from 'src/Application/Services/disaster.service';
-import { PostService } from 'src/Application/Services/post.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { shuffle } from 'src/Common/helpers/ShuffleArray';
-import { IFeedObject } from 'src/Domain/Interfaces/IFeed';
+import { DisasterService } from '../Application/Services/disaster.service';
+import { PostService } from '../Application/Services/post.service';
+import { Public } from '../Common/decorators/public.decorator';
+import { shuffle } from '../Common/helpers/ShuffleArray';
+import { IFeedObject } from '../Domain/Interfaces/IFeed';
 @Controller('feed')
 export class FeedController {
   constructor(

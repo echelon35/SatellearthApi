@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Favori } from 'src/Domain/Models/favori.model';
+import { Favori } from '../../Domain/Models/favori.model';
 
 @Injectable()
 export class FavoriService {

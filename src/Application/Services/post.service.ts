@@ -2,12 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
 import { promises as fs } from 'fs';
-import { uploadFolder } from 'src/Common/constants/allPaths';
-import { PostDto } from 'src/Domain/DTO/post.dto';
-import { IFeedObject } from 'src/Domain/Interfaces/IFeed';
-import { User } from 'src/Domain/Models/user.model';
+import { uploadFolder } from '../../Common/constants/allPaths';
+import { PostDto } from '../../Domain/DTO/post.dto';
+import { IFeedObject } from '../../Domain/Interfaces/IFeed';
+import { User } from '../../Domain/Models/user.model';
 import { BlockUserService } from './block-user.service';
-import { Post } from 'src/Domain/Models/post.model';
+import { Post } from '../../Domain/Models/post.model';
 
 @Injectable()
 export class PostService {

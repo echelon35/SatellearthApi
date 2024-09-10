@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { CommentPostService } from 'src/Application/Services/comment-post.service';
-import { CommentPostDto } from 'src/Domain/DTO/comment-post.dto';
+import { CommentPostService } from '../Application/Services/comment-post.service';
+import { CommentPostDto } from '../Domain/DTO/comment-post.dto';
 
 @Controller('comment-post')
 export class CommentPostController {

@@ -1,4 +1,4 @@
-import { IPaginationOptions } from 'src/Common/Interfaces/IPaginationOptions';
+import { IPaginationOptions } from '../../Common/Interfaces/IPaginationOptions';
 
 export interface IDisasterFilter extends IPaginationOptions {
   type: string;

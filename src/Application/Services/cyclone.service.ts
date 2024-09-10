@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { col, fn, Op, where } from 'sequelize';
 import * as moment from 'moment';
-import { Cyclone } from 'src/Domain/Models/cyclone.model';
-import { ICycloneFilter } from 'src/Domain/Interfaces/ICycloneFilter';
-import { Disaster } from 'src/Domain/Models/disaster.model';
+import { Cyclone } from '../../Domain/Models/cyclone.model';
+import { ICycloneFilter } from '../../Domain/Interfaces/ICycloneFilter';
+import { Disaster } from '../../Domain/Models/disaster.model';
 
 @Injectable()
 export class CycloneService {

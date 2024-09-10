@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { col, fn, where, Op } from 'sequelize';
-import { IPaginationOptions } from 'src/Common/Interfaces/IPaginationOptions';
-import { IDisasterFilter } from 'src/Domain/Interfaces/IDisasterFilter';
-import { IFeedObject } from 'src/Domain/Interfaces/IFeed';
-import { Alea } from 'src/Domain/Models/alea.model';
-import { Disaster } from 'src/Domain/Models/disaster.model';
+import { IDisasterFilter } from '../../Domain/Interfaces/IDisasterFilter';
+import { IFeedObject } from '../../Domain/Interfaces/IFeed';
+import { Alea } from '../../Domain/Models/alea.model';
+import { Disaster } from '../../Domain/Models/disaster.model';
 import { BolideService } from './bolide.service';
 import { CycloneService } from './cyclone.service';
 import { EruptionService } from './eruption.service';
 import { InondationService } from './inondation.service';
 import { SeismeService } from './seisme.service';
+import { IPaginationOptions } from '../../Common/Interfaces/IPaginationOptions';
 
 @Injectable()
 export class DisasterService {
