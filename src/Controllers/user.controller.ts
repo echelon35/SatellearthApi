@@ -9,7 +9,7 @@ import {
 import { FollowerService } from '../Application/Services/follower.service';
 import { PostService } from '../Application/Services/post.service';
 import { UserService } from '../Application/Services/user.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { UserDto } from '../Domain/DTO/user.dto';
 
 @Controller()

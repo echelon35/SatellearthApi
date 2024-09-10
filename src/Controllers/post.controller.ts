@@ -6,7 +6,7 @@ import {
   Response,
 } from '@nestjs/common';
 import { PostService } from '../Application/Services/post.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { PostDto } from '../Domain/DTO/post.dto';
 
 @Controller('post')

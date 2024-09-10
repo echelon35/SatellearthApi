@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
 import { promises as fs } from 'fs';
-import { uploadFolder } from '../../Common/constants/allPaths';
+import { uploadFolder } from '../../Commons/Constants/allPaths';
 import { PostDto } from '../../Domain/DTO/post.dto';
 import { IFeedObject } from '../../Domain/Interfaces/IFeed';
 import { User } from '../../Domain/Models/user.model';

@@ -1,8 +1,8 @@
 import { Controller, Get, Query, Request } from '@nestjs/common';
 import { DisasterService } from '../Application/Services/disaster.service';
 import { PostService } from '../Application/Services/post.service';
-import { Public } from '../Common/decorators/public.decorator';
-import { shuffle } from '../Common/helpers/ShuffleArray';
+import { Public } from '../Commons/Decorators/public.decorator';
+import { shuffle } from '../Commons/Helpers/ShuffleArray';
 import { IFeedObject } from '../Domain/Interfaces/IFeed';
 @Controller('feed')
 export class FeedController {

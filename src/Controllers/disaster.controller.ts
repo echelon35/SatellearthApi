@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { DisasterService } from '../Application/Services/disaster.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { DisasterDto } from '../Domain/DTO/disaster.dto';
 import { IDisasterFilter } from '../Domain/Interfaces/IDisasterFilter';
 

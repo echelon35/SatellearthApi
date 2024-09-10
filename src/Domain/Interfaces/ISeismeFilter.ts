@@ -1,4 +1,4 @@
-import { IPaginationOptions } from '../../Common/Interfaces/IPaginationOptions';
+import { IPaginationOptions } from '../../Commons/Interfaces/IPaginationOptions';
 
 export interface ISeismeFilter extends IPaginationOptions {
   from: string;

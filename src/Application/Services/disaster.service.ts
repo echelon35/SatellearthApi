@@ -10,7 +10,7 @@ import { CycloneService } from './cyclone.service';
 import { EruptionService } from './eruption.service';
 import { InondationService } from './inondation.service';
 import { SeismeService } from './seisme.service';
-import { IPaginationOptions } from '../../Common/Interfaces/IPaginationOptions';
+import { IPaginationOptions } from '../../Commons/Interfaces/IPaginationOptions';
 
 @Injectable()
 export class DisasterService {

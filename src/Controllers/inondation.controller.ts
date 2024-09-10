@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { InondationService } from '../Application/Services/inondation.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { InondationDto } from '../Domain/DTO/inondation.dto';
 
 @ApiTags('alea/inondation')

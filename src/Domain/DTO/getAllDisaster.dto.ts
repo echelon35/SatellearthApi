@@ -1,4 +1,4 @@
-import { PaginationDto } from '../../Common/DTO/Pagination.dto';
+import { PaginationDto } from '../../Commons/DTO/Pagination.dto';
 
 export class GetAllDisasters extends PaginationDto {
   type: string;

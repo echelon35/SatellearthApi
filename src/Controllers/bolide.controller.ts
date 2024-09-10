@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { BolideService } from '../Application/Services/bolide.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { IBolideFilter } from '../Domain/Interfaces/IBolideFilter';
 import { Bolide } from '../Domain/Models/bolide.model';
 

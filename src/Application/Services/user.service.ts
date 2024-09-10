@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { promises as fs } from 'fs';
-import { avatarFolder } from '../../Common/constants/allPaths';
+import { avatarFolder } from '../../Commons/Constants/allPaths';
 import { ICreateUser } from '../../Domain/Interfaces/ICreateUser';
 import { User } from '../../Domain/Models/user.model';
 

@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { EruptionService } from '../Application/Services/eruption.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { EruptionDto } from '../Domain/DTO/eruption.dto';
 import { IEruptionFilter } from '../Domain/Interfaces/IEruptionFilter';
 

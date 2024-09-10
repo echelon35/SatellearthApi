@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Query, Request } from '@nestjs/common';
 import { LikePostService } from '../Application/Services/like-post.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { LikePostDto } from '../Domain/DTO/like-post.dto';
 
 @Controller('post')

@@ -10,7 +10,7 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 import { AuthService } from '../Application/Services/auth.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { GoogleAuthGuard } from '../Guards/google-auth.guard';
 import { LocalAuthGuard } from '../Guards/local-auth.guard';
 

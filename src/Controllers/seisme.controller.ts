@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { SeismeService } from '../Application/Services/seisme.service';
-import { Public } from '../Common/decorators/public.decorator';
+import { Public } from '../Commons/Decorators/public.decorator';
 import { SeismeDto } from '../Domain/DTO/seisme.dto';
 import { ISeismeFilter } from '../Domain/Interfaces/ISeismeFilter';
 import { Seisme } from '../Domain/Models/seisme.model';
