@@ -10,36 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout code
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # 2. Setup Node.js
+    - name: Add server to known_hosts
+      run: |
+        ssh-keyscan -H ec2-13-36-38-31.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
+
+    - name: Stop SatellearthApi if running
+      run: |
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 stop satellearthapi || true"
+
+    - name: Ensure satellearthapi directory exists on EC2
+      run: |
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "mkdir -p /opt/satellearthapi"
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '20'  # Node.js version needed by the project
 
-    # 3. Install dependancies
     - name: Install dependencies
       run: npm install
 
-    # 4. Build Nest project
+    - name: Run ESLint
+      uses: eslint/github-action@v0
+
     - name: Build Nest project
       run: npm run build
 
-     # Run ESLint
-    - uses: eslint/github-action@v0
-
-    # 5. Add SSH key for connection
     - name: Add SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Add server to known_hosts
-      run: |
-        ssh-keyscan -H ec2-13-36-38-31.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
 
     - name: Create env file
       run: |
@@ -59,15 +62,13 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
-    # 6. Déployer le dossier dist sur le serveur
-    - name: Deploy to server
+    - name: Deploy dist to server
       run: |
         scp -r ./dist/* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
         scp -r .env root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    # 7. Stop and restart pm2
-    - name: Restart NestJS server with pm2
+    - name: Restart NestJs API with PM2
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "sudo pm2 restart satellearthapi"
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/server.js --name satellearthapi"
