@@ -76,4 +76,4 @@ jobs:
 
     - name: Restart NestJs API with PM2
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/server.js --name satellearthapi"
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/main.js --name satellearthapi"
