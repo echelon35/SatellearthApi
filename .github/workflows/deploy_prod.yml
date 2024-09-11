@@ -67,8 +67,7 @@ jobs:
 
     - name: Install package on remote
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "cd /opt/satellearthapi"
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "npm install"
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "cd /opt/satellearthapi && npm install"
 
     - name: Restart NestJs API with PM2
       run: |
