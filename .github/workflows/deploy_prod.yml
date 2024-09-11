@@ -71,6 +71,7 @@ jobs:
       run: |
         scp -r ./dist/* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
         scp -r .env root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
+        scp -r /node-modules root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
