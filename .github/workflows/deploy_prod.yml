@@ -20,15 +20,15 @@ jobs:
 
     - name: Add server to known_hosts
       run: |
-        ssh-keyscan -H ec2-13-36-38-31.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
+        ssh-keyscan -H ${{ secrets.SERVER_URL }} >> ~/.ssh/known_hosts
 
     - name: Stop SatellearthApi if running
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 stop satellearthapi || true"
+        ssh root@${{ secrets.SERVER_URL }} "pm2 stop satellearthapi || true"
 
     - name: Ensure satellearthapi directory exists on EC2
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "mkdir -p /opt/satellearthapi"
+        ssh root@${{ secrets.SERVER_URL }} "mkdir -p /opt/satellearthapi"
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -63,10 +63,10 @@ jobs:
 
     - name: Deploy project to server
       run: |
-        scp -r ./* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
+        scp -r ./* root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Restart NestJs API with PM2
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/dist/main.js --name satellearthapi"
+        ssh root@${{ secrets.SERVER_URL }} "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/dist/main.js --name satellearthapi"
