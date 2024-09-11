@@ -35,15 +35,6 @@ jobs:
       with:
         node-version: '20'  # Node.js version needed by the project
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run ESLint
-      run: npm run lint
-
-    - name: Build Nest project
-      run: npm run build
-
     - name: Add SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
@@ -67,14 +58,18 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
-    - name: Deploy dist to server
+    - name: Deploy project to server
       run: |
-        scp -r ./dist/* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
+        scp -r ./* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
         scp -r .env root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
-        scp -r ./node-modules root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Install package on remote
+      run: |
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "cd /opt/satellearthapi"
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "npm install"
+
     - name: Restart NestJs API with PM2
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/main.js --name satellearthapi"
+        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/dist/main.js --name satellearthapi"
