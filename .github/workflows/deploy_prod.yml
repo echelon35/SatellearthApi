@@ -62,6 +62,10 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
+    - name: Build project
+      run: |
+        npm run build
+
     - name: Copy dist, .env and package.json to EC2 instance
       run: |
         scp -r dist package.json .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
