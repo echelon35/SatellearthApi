@@ -62,9 +62,15 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
-    - name: Deploy project to server
+    - name: Copy dist, .env and package.json to EC2 instance
       run: |
-        scp -r ./* root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
+        scp -r dist package.json .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Install dependencies with npm ci
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi/ && npm ci"
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
