@@ -63,21 +63,21 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
-    - name: Copy project to EC2 instance
+    - name: Copy all project to EC2 instance
       run: |
-        scp -r ./* .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
+        scp -r * .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Install packages on server
       run: |
-        ssh root@${{ secrets.SERVER_URL }} "sudo npm install"
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo npm install"
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Build project on server
       run: |
-        ssh root@${{ secrets.SERVER_URL }} "sudo npm build"
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo npm run build"
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
