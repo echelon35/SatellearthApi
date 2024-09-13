@@ -45,14 +45,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Install Nest for build
-      run: |
-        npm install -g @nestjs/cli
-
-    - name: Build project
-      run: |
-        npm run build
-
     - name: Create env file
       run: |
           touch .env
@@ -71,15 +63,21 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
-    - name: Copy dist, .env and package.json to EC2 instance
+    - name: Copy project to EC2 instance
       run: |
-        scp -r dist package.json .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
+        scp -r ./* .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Install dependencies with npm ci
+    - name: Install packages on server
       run: |
-        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi/ && npm ci"
+        ssh root@${{ secrets.SERVER_URL }} "sudo npm install"
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Build project on server
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "sudo npm build"
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
