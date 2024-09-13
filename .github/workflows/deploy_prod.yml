@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
     - name: Checkout repository
@@ -44,6 +45,14 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Install Nest for build
+      run: |
+        npm install -g @nestjs/cli
+
+    - name: Build project
+      run: |
+        npm run build
+
     - name: Create env file
       run: |
           touch .env
@@ -61,10 +70,6 @@ jobs:
           echo GMAIL_PASS=${{ secrets.GMAIL_PASS }} >> .env
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
-
-    - name: Build project
-      run: |
-        npm run build
 
     - name: Copy dist, .env and package.json to EC2 instance
       run: |
