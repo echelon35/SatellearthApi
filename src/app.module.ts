@@ -38,7 +38,7 @@ import { AtlasModule } from './Modules/atlas.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: './.env',
       isGlobal: true,
     }),
     SequelizeModule.forRoot({
