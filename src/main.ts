@@ -18,6 +18,10 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
+  console.log(
+    'SatellearthApi running on port ' + process.env.SATELLEARTH_API_PORT,
+  );
+
   const port = process.env.SATELLEARTH_API_PORT || 3000;
   await app.listen(port);
 }
