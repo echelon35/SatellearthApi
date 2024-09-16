@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Follower } from 'src/Domain/Models/follower.model';
+import { Follower } from '../../Domain/Models/follower.model';
 
 @Injectable()
 export class FollowerService {

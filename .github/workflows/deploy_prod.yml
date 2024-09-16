@@ -8,35 +8,42 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
-    # 1. Checkout code
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # 2. Setup Node.js
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'  # Node.js version needed by the project
-
-    # 3. Install dependancies
-    - name: Install dependencies
-      run: npm install
-
-    # 4. Build Nest project
-    - name: Build Nest project
-      run: npm run build
-
-    # 5. Add SSH key for connection
-    - name: Add SSH key
+    - name: Set up SSH agent
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Add server to known_hosts
       run: |
-        ssh-keyscan -H ec2-13-36-38-31.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
+        ssh-keyscan -H ${{ secrets.SERVER_URL }} >> ~/.ssh/known_hosts
+
+    - name: Stop SatellearthApi if running
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "pm2 stop satellearthapi || true"
+
+    - name: Delete satellearthapi directory if already exists on EC2
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "rm -r /opt/satellearthapi || true"
+
+    - name: Ensure satellearthapi directory exists on EC2
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "mkdir -p /opt/satellearthapi"
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Node.js version needed by the project
+
+    - name: Add SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Create env file
       run: |
@@ -56,15 +63,24 @@ jobs:
           echo BASE_URI=${{ secrets.BASE_URI }} >> .env
           cat .env
 
-    # 6. Déployer le dossier dist sur le serveur
-    - name: Deploy to server
+    - name: Copy all project to EC2 instance
       run: |
-        scp -r ./dist/* root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
-        scp -r .env root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com:/opt/satellearthapi/
+        scp -r * .env root@${{ secrets.SERVER_URL }}:/opt/satellearthapi/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    # 7. Stop and restart pm2
-    - name: Restart NestJS server with pm2
+    - name: Install packages on server
       run: |
-        ssh root@ec2-13-36-38-31.eu-west-3.compute.amazonaws.com "sudo pm2 restart satellearthapi"
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo npm install"
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Build project on server
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo npm run build"
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Restart NestJs API with PM2
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/dist/main.js --name satellearthapi"

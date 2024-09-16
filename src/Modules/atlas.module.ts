@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Pays } from 'src/Domain/Models/pays.model';
-import { Ville } from 'src/Domain/Models/ville.model';
+import { Pays } from '../Domain/Models/pays.model';
+import { Ville } from '../Domain/Models/ville.model';
 
 @Module({
   imports: [SequelizeModule.forFeature([Pays, Ville])],

@@ -32,14 +32,13 @@ import { Post } from './Domain/Models/post.model';
 import { Search } from './Domain/Models/search.model';
 import { Module } from '@nestjs/common/decorators';
 import { DisasterModule } from './Modules/disaster.module';
-import { UserModule } from './Modules/user.module';
 import { AdviceModule } from './Modules/advice.module';
 import { AtlasModule } from './Modules/atlas.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: './.env',
       isGlobal: true,
     }),
     SequelizeModule.forRoot({

@@ -1,9 +1,9 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CycloneService } from 'src/Application/Services/cyclone.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { CycloneDto } from 'src/Domain/DTO/cyclone.dto';
-import { ICycloneFilter } from 'src/Domain/Interfaces/ICycloneFilter';
+import { CycloneService } from '../Application/Services/cyclone.service';
+import { Public } from '../Commons/Decorators/public.decorator';
+import { CycloneDto } from '../Domain/DTO/cyclone.dto';
+import { ICycloneFilter } from '../Domain/Interfaces/ICycloneFilter';
 
 @ApiTags('alea/cyclone')
 @Controller('alea/cyclone')

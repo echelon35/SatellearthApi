@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Alea } from 'src/Domain/Models/alea.model';
+import { Alea } from '../../Domain/Models/alea.model';
 
 @Injectable()
 export class AleaService {

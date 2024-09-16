@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Pays } from 'src/Domain/Models/pays.model';
+import { Pays } from '../../Domain/Models/pays.model';
 
 @Injectable()
 export class PaysService {

@@ -1,4 +1,4 @@
-import { IPaginationOptions } from 'src/Common/Interfaces/IPaginationOptions';
+import { IPaginationOptions } from '../../Commons/Interfaces/IPaginationOptions';
 
 export interface ICycloneFilter extends IPaginationOptions {
   from: string;

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Source } from 'src/Domain/Models/source.model';
+import { Source } from '../../Domain/Models/source.model';
 
 @Injectable()
 export class SourceService {

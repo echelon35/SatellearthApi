@@ -1,0 +1,27 @@
+name: Restart SatellearthApi
+
+# Permet de lancer le workflow manuellement depuis l'interface GitHub
+on:
+  workflow_dispatch:
+
+jobs:
+  restart_server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up SSH agent
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Add server to known_hosts
+      run: |
+        ssh-keyscan -H ${{ secrets.SERVER_URL }} >> ~/.ssh/known_hosts
+
+    - name: Compile Nest app
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo npm run build"
+
+    - name: Restart NestJs API with PM2
+      run: |
+        ssh root@${{ secrets.SERVER_URL }} "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/dist/main.js --name satellearthapi"

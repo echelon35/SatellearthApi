@@ -9,10 +9,10 @@ import {
   Get,
   ForbiddenException,
 } from '@nestjs/common';
-import { AuthService } from 'src/Application/Services/auth.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { GoogleAuthGuard } from 'src/Guards/google-auth.guard';
-import { LocalAuthGuard } from 'src/Guards/local-auth.guard';
+import { AuthService } from '../Application/Services/auth.service';
+import { Public } from '../Commons/Decorators/public.decorator';
+import { GoogleAuthGuard } from '../Guards/google-auth.guard';
+import { LocalAuthGuard } from '../Guards/local-auth.guard';
 
 @Controller('auth')
 export class AuthController {

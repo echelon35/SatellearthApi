@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { FollowerService } from 'src/Application/Services/follower.service';
-import { UserService } from 'src/Application/Services/user.service';
-import { FollowerController } from 'src/Controllers/follower.controller';
-import { UserController } from 'src/Controllers/user.controller';
-import { Follower } from 'src/Domain/Models/follower.model';
-import { Role } from 'src/Domain/Models/role.model';
-import { BlockUser } from 'src/Domain/Models/block-user.model';
-import { User } from 'src/Domain/Models/user.model';
-import { Notification } from 'src/Domain/Models/notification.model';
+import { FollowerService } from '../Application/Services/follower.service';
+import { UserService } from '../Application/Services/user.service';
+import { FollowerController } from '../Controllers/follower.controller';
+import { UserController } from '../Controllers/user.controller';
+import { Follower } from '../Domain/Models/follower.model';
+import { Role } from '../Domain/Models/role.model';
+import { BlockUser } from '../Domain/Models/block-user.model';
+import { User } from '../Domain/Models/user.model';
+import { Notification } from '../Domain/Models/notification.model';
 import { SocialModule } from './social.module';
 
 @Module({

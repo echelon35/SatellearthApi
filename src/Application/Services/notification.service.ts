@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Notification } from 'src/Domain/Models/notification.model';
+import { Notification } from '../../Domain/Models/notification.model';
 
 @Injectable()
 export class NotificationService {

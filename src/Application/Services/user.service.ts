@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { promises as fs } from 'fs';
-import { avatarFolder } from 'src/Common/constants/allPaths';
-import { ICreateUser } from 'src/Domain/Interfaces/ICreateUser';
-import { User } from 'src/Domain/Models/user.model';
+import { avatarFolder } from '../../Commons/Constants/allPaths';
+import { ICreateUser } from '../../Domain/Interfaces/ICreateUser';
+import { User } from '../../Domain/Models/user.model';
 
 @Injectable()
 export class UserService {

@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { SearchPlaceService } from 'src/Application/Services/search-place.service';
-import { SearchPlaceDto } from 'src/Domain/DTO/search-place.dto';
+import { SearchPlaceService } from '../Application/Services/search-place.service';
+import { SearchPlaceDto } from '../Domain/DTO/search-place.dto';
 
 @Controller('search-place')
 export class SearchPlaceController {

@@ -5,9 +5,9 @@ import {
   Param,
   Response,
 } from '@nestjs/common';
-import { PostService } from 'src/Application/Services/post.service';
-import { Public } from 'src/Common/decorators/public.decorator';
-import { PostDto } from 'src/Domain/DTO/post.dto';
+import { PostService } from '../Application/Services/post.service';
+import { Public } from '../Commons/Decorators/public.decorator';
+import { PostDto } from '../Domain/DTO/post.dto';
 
 @Controller('post')
 export class PostController {

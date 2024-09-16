@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
-import { LikePost } from 'src/Domain/Models/like-post.model';
-import { User } from 'src/Domain/Models/user.model';
+import { LikePost } from '../../Domain/Models/like-post.model';
+import { User } from '../../Domain/Models/user.model';
 
 @Injectable()
 export class LikePostService {

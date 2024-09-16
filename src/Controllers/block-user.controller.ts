@@ -1,6 +1,6 @@
 import { Controller, Get, Request } from '@nestjs/common';
-import { BlockUserService } from 'src/Application/Services/block-user.service';
-import { BlockUserDto } from 'src/Domain/DTO/block-user.dto';
+import { BlockUserService } from '../Application/Services/block-user.service';
+import { BlockUserDto } from '../Domain/DTO/block-user.dto';
 
 @Controller()
 export class BlockUserController {
