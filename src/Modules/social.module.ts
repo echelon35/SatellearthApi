@@ -11,10 +11,13 @@ import { Follower } from '../Domain/Models/follower.model';
 import { Post } from '../Domain/Models/post.model';
 import { Notification } from '../Domain/Models/notification.model';
 import { BlockUserService } from '../Application/Services/block-user.service';
+import { FeedController } from 'src/Controllers/feed.controller';
+import { DisasterModule } from './disaster.module';
 
 @Module({
   providers: [PostService, BlockUserService],
   imports: [
+    DisasterModule,
     SequelizeModule.forFeature([
       CommentDisaster,
       CommentPost,
@@ -27,6 +30,7 @@ import { BlockUserService } from '../Application/Services/block-user.service';
       BlockUser,
     ]),
   ],
+  controllers: [FeedController],
   exports: [PostService],
 })
 export class SocialModule {}
