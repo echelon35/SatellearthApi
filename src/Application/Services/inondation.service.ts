@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Inondation } from '../../Domain/Models/inondation.model';
 import { Op, col, fn, where } from 'sequelize';
-import moment from 'moment';
+import * as moment from 'moment';
 import { Disaster } from 'src/Domain/Models/disaster.model';
 import { IInondationFilter } from 'src/Domain/Interfaces/IInondationFilter';
 
