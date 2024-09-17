@@ -75,12 +75,7 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Build project on server
-      run: |
-        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo npm run build"
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
     - name: Restart NestJs API with PM2
       run: |
-        ssh root@${{ secrets.SERVER_URL }} "pm2 restart satellearthapi || pm2 start /opt/satellearthapi/dist/main.js --name satellearthapi"
+        ssh root@${{ secrets.SERVER_URL }} "cd /opt/satellearthapi && sudo pm2 restart satellearthapi || sudo pm2 start \"npm run start\" --name satellearthapi"
+
