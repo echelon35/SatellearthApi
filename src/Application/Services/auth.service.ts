@@ -13,9 +13,9 @@ export class AuthService {
   ) {}
 
   /**
-   * 
-   * @param user 
-   * @returns 
+   *
+   * @param user
+   * @returns
    */
   async login(user: UserDto): Promise<any> {
     return {

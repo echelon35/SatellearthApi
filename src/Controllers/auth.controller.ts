@@ -55,7 +55,7 @@ export class AuthController {
     const token = await this.authService.googleLogin(req.user);
     if (token) {
       return res.redirect(
-        `http://localhost:4200/home?access_token=${token.access_token}`,
+        `${process.env.SATELLEARTH_FRONT_BASE_URI}/home?access_token=${token.access_token}`,
       );
     } else {
       throw new ForbiddenException();
